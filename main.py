@@ -65,6 +65,7 @@ class ReminderHandler(webapp2.RequestHandler):
         #shows the home page after you press submit
         self.redirect("/")
 app = webapp2.WSGIApplication([
+
     ('/addreminder', ReminderHandler),
     ('/', MainHandler)
 ], debug=True)
