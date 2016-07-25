@@ -36,7 +36,22 @@ class MainHandler(webapp2.RequestHandler):
 
         #shows the main page after you press submit
         self.redirect("/")
+class AddHandler(webapp2.RequestHandler):
+    def get(self):
+        pass
+    def post(self):
+        #get reminder from form
+        title = self.request.get('title')
+        description = self.request.get('description')
+        frequency = self.request.get('frequency')
 
+        #put the students from form into the database
+        new_reminder = Reminder(title = title,description = description,frequency = frequency)
+        new_reminder.put()
+
+        #shows the main page after you press submit
+        self.redirect("/")
 app = webapp2.WSGIApplication([
+    ('/add', AddHandler),
     ('/', MainHandler)
 ], debug=True)
