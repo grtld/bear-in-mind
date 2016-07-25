@@ -47,7 +47,7 @@ class MainHandler(webapp2.RequestHandler):
 
         #shows the main page after you press submit
         self.redirect("/")
-class AddHandler(webapp2.RequestHandler):
+class ReminderHandler(webapp2.RequestHandler):
     def get(self):
         #render a response
         template = jinja_environment.get_template('add.html')
@@ -66,6 +66,6 @@ class AddHandler(webapp2.RequestHandler):
         #shows the home page after you press submit
         self.redirect("/")
 app = webapp2.WSGIApplication([
-    ('/add', AddHandler),
+    ('/add', ReminderHandler),
     ('/', MainHandler)
 ], debug=True)
