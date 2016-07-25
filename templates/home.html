@@ -5,15 +5,24 @@
   </head>
   <body>
 
-<h1>{{user}}'s To-Do List</h1>
+<h1>Hi {{user}}!</h1>
+<h2>Here is your To-Do List</h2>
 
-<h2>Today's Events</h2>
+<h3>Today's Events</h3>
+
+{% for reminder in user.reminder %}
+Event: {{reminder.title}}
+<br>
+Description: {{reminder.description}}
+<br>
+
+{% endfor %}
 
 
 
-<h2>Upcoming Events</h2>
+<h3>Upcoming Events</h3>
 
-    <a href="/add"><button>Add an Event</button></a>
+    <a href="/add"><button>Add a Reminder</button></a>
     {% for user in users %}
     <a href="/?subject={{user.reminders}}">{{user.reminders}}</a>
     {% endfor %}

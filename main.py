@@ -25,14 +25,14 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
         #show a list of the reminders
-        #reminder = Reminder.query().fetch()
+        reminder = Reminder.query().fetch()
 
         #render response
-        #template_values= {'reminder':reminder}
+        template_values= {'reminder':reminder}
 
         #template = jinja_environment.get_template('home.html')
         #self.response.write(user)
-        template_values = {'user': user}
+        template_values = {'user': user, 'reminder': reminder}
         template = jinja_environment.get_template('home.html')
         self.response.write(template.render(template_values))
 
