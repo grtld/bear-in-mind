@@ -5,11 +5,13 @@
   </head>
   <body>
 
+<h1>{{user}}'s To-Do List</h1>
+
+    <button>Add an Event</button>
     {% for user in users %}
     <a href="/?subject={{user.reminders}}">{{user.reminders}}</a>
     {% endfor %}
 
-<a href="/?subject=add">Add an Event</a>
 
   </body>
 </html>
