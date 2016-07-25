@@ -39,7 +39,6 @@ class MainHandler(webapp2.RequestHandler):
 
 #add time stamp and use it to order messages
 #log in and log out links
->>>>>>> ed882c12248d7c30512671682ccaeb85d9c238e1
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
