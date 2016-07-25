@@ -57,7 +57,7 @@ class AddHandler(webapp2.RequestHandler):
         frequency = self.request.get('frequency')
 
         #put the reminders from form into the database
-        new_reminder = Reminder(title = title,description = description,frequency = frequency)
+        new_reminder = Reminder(title = title,description = description,frequency = int(frequency))
         new_reminder.put()
 
         #shows the home page after you press submit
