@@ -4,6 +4,12 @@
     <title>Home</title>
   </head>
   <body>
-    
+
+    {% for user in users %}
+    <a href="/?subject={{user.reminders}}">{{user.reminders}}</a>
+    {% endfor %}
+
+<a href="/?"
+
   </body>
 </html>
