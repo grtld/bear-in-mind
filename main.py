@@ -3,7 +3,7 @@ import jinja2
 import os
 
 from google.appengine.ext import ndb
-
+from google.appengine.api import users
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir))
@@ -14,6 +14,8 @@ class Reminder(ndb.Model):
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
+        user = users.get_current_user()
+        self.response.write(template.render(user))
         #show a list of the reminders
         reminder = Reminder.query().fetch()
 
@@ -37,6 +39,7 @@ class MainHandler(webapp2.RequestHandler):
 
 #add time stamp and use it to order messages
 #log in and log out links
+>>>>>>> ed882c12248d7c30512671682ccaeb85d9c238e1
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
