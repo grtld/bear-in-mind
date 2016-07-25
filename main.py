@@ -1,8 +1,10 @@
 import webapp2
 import jinja2
 import os
+import logging
 
 from google.appengine.ext import ndb
+from google.appengine.api import users
 
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
@@ -12,6 +14,8 @@ jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(template_d
 #model for message
 class Reminder(ndb.Model):
     reminder = ndb.TextProperty()
+
+
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
