@@ -13,9 +13,12 @@ jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(template_d
 
 #model for message
 class Reminder(ndb.Model):
-    reminder = ndb.TextProperty()
+    title = ndb.TextProperty()
+    description = ndb.TextProperty()
 
-
+class User(ndb.Model):
+    email = ndb.StringProperty()
+    reminders = ndb.StringProperty(repeated=True)
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
