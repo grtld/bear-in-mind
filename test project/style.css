@@ -1,0 +1,49 @@
+video#bgvid {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(Grocery_line.png) no-repeat;
+    background-size: cover;
+    opacity: 0.4;
+}
+
+h1 {
+  font-family: sans-serif;
+  font-size: 60px;
+  color: white;
+  text-align: center;
+}
+
+body {
+  background-color: rgba(0, 0, 0, 0.6);
+  font-family: sans-serif;
+  color: white;
+  left: 100px;
+}
+
+section .article {
+  background-color: darkgrey;
+  height: 150px;
+  width: 150px;
+  margin: 20px;
+  float: left;
+
+}
+
+section .clear{
+  clear: both;
+}
+
+
+img#book {
+  
+}
