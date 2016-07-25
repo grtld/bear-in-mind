@@ -15,6 +15,7 @@ jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(template_d
 class Reminder(ndb.Model):
     title = ndb.TextProperty()
     description = ndb.TextProperty()
+    frequency = ndb.IntegerProperty()
 
 class User(ndb.Model):
     email = ndb.StringProperty()
