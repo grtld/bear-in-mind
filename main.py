@@ -13,9 +13,12 @@ jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(template_d
 
 #model for message
 class Reminder(ndb.Model):
-    reminder = ndb.TextProperty()
+    title = ndb.TextProperty()
+    description = ndb.TextProperty()
 
-
+class User(ndb.Model):
+    email = ndb.StringProperty()
+    reminders = ndb.StringProperty(repeated=True)
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -40,7 +43,22 @@ class MainHandler(webapp2.RequestHandler):
 
         #shows the main page after you press submit
         self.redirect("/")
+class AddHandler(webapp2.RequestHandler):
+    def get(self):
+        pass
+    def post(self):
+        #get reminder from form
+        title = self.request.get('title')
+        description = self.request.get('description')
+        frequency = self.request.get('frequency')
 
+        #put the students from form into the database
+        new_reminder = Reminder(title = title,description = description,frequency = frequency)
+        new_reminder.put()
+
+        #shows the main page after you press submit
+        self.redirect("/")
 app = webapp2.WSGIApplication([
+    ('/add', AddHandler),
     ('/', MainHandler)
 ], debug=True)
