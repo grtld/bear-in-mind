@@ -7,7 +7,13 @@
 
 <h1>{{user}}'s To-Do List</h1>
 
-    <button>Add an Event</button>
+<h2>Today's Events</h2>
+
+
+
+<h2>Upcoming Events</h2>
+
+    <a href="/add"><button>Add an Event</button></a>
     {% for user in users %}
     <a href="/?subject={{user.reminders}}">{{user.reminders}}</a>
     {% endfor %}
