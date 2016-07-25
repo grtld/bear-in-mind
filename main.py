@@ -8,6 +8,7 @@ from google.appengine.api import users
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir))
 
+
 #model for message
 class Reminder(ndb.Model):
     reminder = ndb.TextProperty()
@@ -15,15 +16,14 @@ class Reminder(ndb.Model):
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
-        self.response.write(template.render(user))
         #show a list of the reminders
-        reminder = Reminder.query().fetch()
+        #reminder = Reminder.query().fetch()
 
         #render response
-        template_values= {'reminder':reminder}
+        #template_values= {'reminder':reminder}
 
-        template = jinja_environment.get_template('home.html')
-        self.response.write(template.render(template_values))
+        #template = jinja_environment.get_template('home.html')
+        self.response.write(user)
 
     #post method that adds reminder into database
     def post(self):
