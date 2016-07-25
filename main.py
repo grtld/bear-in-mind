@@ -8,6 +8,7 @@ from google.appengine.ext import ndb
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir))
 
+
 #model for message
 class Reminder(ndb.Model):
     reminder = ndb.TextProperty()
