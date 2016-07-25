@@ -48,18 +48,21 @@ class MainHandler(webapp2.RequestHandler):
         self.redirect("/")
 class AddHandler(webapp2.RequestHandler):
     def get(self):
-        pass
+        #render a response
+        template = jinja_environment.get_template('add.html')
+        self.response.write(template.render())
+
     def post(self):
         #get reminder from form
         title = self.request.get('title')
         description = self.request.get('description')
         frequency = self.request.get('frequency')
 
-        #put the students from form into the database
+        #put the reminders from form into the database
         new_reminder = Reminder(title = title,description = description,frequency = frequency)
         new_reminder.put()
 
-        #shows the main page after you press submit
+        #shows the home page after you press submit
         self.redirect("/")
 app = webapp2.WSGIApplication([
     ('/add', AddHandler),
