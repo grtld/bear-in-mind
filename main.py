@@ -31,7 +31,10 @@ class MainHandler(webapp2.RequestHandler):
         #template_values= {'reminder':reminder}
 
         #template = jinja_environment.get_template('home.html')
-        self.response.write(user)
+        #self.response.write(user)
+        template_values = {'user': user}
+        template = jinja_environment.get_template('home.html')
+        self.response.write(template.render(template_values))
 
     #post method that adds reminder into database
     def post(self):
