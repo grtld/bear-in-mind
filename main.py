@@ -15,6 +15,8 @@
 # limitations under the License.
 #
 import webapp2
+import jijna2
+import os
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
