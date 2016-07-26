@@ -30,10 +30,7 @@ class Reminder(ndb.Model):
     frequency = ndb.IntegerProperty()
     user_key = ndb.KeyProperty(kind=User)
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 6f032f6e31fe44916fc8393550ad6f1296279bd8
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         user = str(users.get_current_user())
@@ -73,6 +70,7 @@ class ReminderHandler(webapp2.RequestHandler):
         title = self.request.get('title')
         description = self.request.get('description')
         frequency = self.request.get('frequency')
+        urlsafe_key = self.request.get('key')
 
         #put the reminders from form into the database
         new_reminder = Reminder(title = title,description = description,frequency = int(frequency),user_key=user.key)
