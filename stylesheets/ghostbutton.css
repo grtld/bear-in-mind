@@ -16,6 +16,8 @@
             color 0.2s ease-out;
   margin-left:auto;
   margin-right:auto;
+  font-family: sans-serif;
+
 }
 
 .ghost-button:hover,

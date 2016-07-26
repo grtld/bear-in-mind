@@ -75,11 +75,11 @@ class LoginHandler(webapp2.RequestHandler):
         self.response.write(template.render())
 
     def post(self):
-        self.redirect("/")
+        self.redirect("/home")
 
 app = webapp2.WSGIApplication([
 
     ('/addreminder', ReminderHandler),
-    ('/', MainHandler),
-    ('/login', LoginHandler)
+    ('/home', MainHandler),
+    ('/', LoginHandler)
 ], debug=True)
