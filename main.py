@@ -26,11 +26,6 @@ class Reminder(ndb.Model):
     frequency = ndb.IntegerProperty()
     user_key = ndb.KeyProperty(kind=User)
 
-class Login(ndb.Model):
-    def url(self):
-        url = '/addreminder?key=' + self.key.urlsafe()
-        return url
-
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -74,15 +69,10 @@ class ReminderHandler(webapp2.RequestHandler):
 
 class LoginHandler(webapp2.RequestHandler):
     def get(self):
-        urlsafe_key = self.request.get('key')
-        reminder = ndb.Key(urlsafe=urlsafe_key).get()
-
         template = jinja_environment.get_template('login.html')
         self.response.write(template.render())
 
     def post(self):
-        urlsafe_key = self.request.get('key')
-        key = ndb.Key(urlsafe=urlsafe_key)
         self.redirect("/home")
 
 app = webapp2.WSGIApplication([
