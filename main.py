@@ -55,7 +55,7 @@ class MainHandler(webapp2.RequestHandler):
         #loop through all the reminders
         for reminder in reminders:
             #if today's day date is equal to dataTime for the reminder + frequency, add to the list of today's reminders
-            if  today.day == reminder.date.day + reminder.frequecny:
+            if  today.datetime.day == reminder.date.day + reminder.frequecny:
                 #make the reminder for today equal to the current reminder from the list
                 today_reminder = reminder
                 #add the reminder to the list of the reminders that are going to be posted for today
