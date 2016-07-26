@@ -1,0 +1,48 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url(larch.ttf);
+}
+
+.background {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background: url(background.jpg) no-repeat;
+  background-size: cover;
+  opacity: .8;
+  background-color: : rgba(0, 0, 0, 0.7);
+
+
+}
+
+h1 {
+  font-family: myFirstFont;
+  font-size: 100px;
+  color: gold;
+  text-align: center;
+  text-shadow: 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+  font-family: sans-serif;;
+  font-size: 20px;
+  color: grey;
+  text-align: center;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+body {
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: sans-serif;
+  color: white;
+  left: 100px;
+}
