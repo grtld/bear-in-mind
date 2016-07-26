@@ -15,6 +15,10 @@ jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(template_d
 class User(ndb.Model):
     email = ndb.StringProperty()
     reminders = ndb.StringProperty(repeated=True)
+    #a method that return the key url for a student when called
+    def url(self):
+        url = '/reminder?key=' + self.key.urlsafe()
+        return url
 
     def url(self):
         url = '/reminder?key=' + self.key.urlsafe()
@@ -25,6 +29,7 @@ class Reminder(ndb.Model):
     description = ndb.TextProperty()
     frequency = ndb.IntegerProperty()
     user_key = ndb.KeyProperty(kind=User)
+
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -66,7 +71,7 @@ class ReminderHandler(webapp2.RequestHandler):
         description = self.request.get('description')
         frequency = self.request.get('frequency')
         urlsafe_key = self.request.get('key')
-        
+
         #put the reminders from form into the database
         new_reminder = Reminder(title = title,description = description,frequency = int(frequency))
         new_reminder.put()
