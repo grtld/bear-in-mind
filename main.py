@@ -17,7 +17,7 @@ class User(ndb.Model):
     reminders = ndb.StringProperty(repeated=True)
     #a method that return the key url for a user when called
     def url(self):
-        url = '/?key=' + self.key.urlsafe()
+        url = '/addreminder?key=' + self.key.urlsafe()
         return url
 
 class Reminder(ndb.Model):
@@ -58,9 +58,10 @@ class ReminderHandler(webapp2.RequestHandler):
         description = self.request.get('description')
         frequency = self.request.get('frequency')
         urlsafe_key = self.request.get('key')
+        key = ndb.Key(urlsafe=urlsafe_key)
 
         #put the reminders from form into the database
-        new_reminder = Reminder(title = title,description = description,frequency = int(frequency),user_key=user.key)
+        new_reminder = Reminder(title = title,description = description,frequency = int(frequency),user_key=key)
         new_reminder.put()
 
         #shows the home page after you press submit
