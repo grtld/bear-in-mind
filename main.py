@@ -75,7 +75,7 @@ class LoginHandler(webapp2.RequestHandler):
         self.response.write(template.render())
 
     def post(self):
-        self.redirect("/home")
+        self.redirect('/login')
 
 app = webapp2.WSGIApplication([
 

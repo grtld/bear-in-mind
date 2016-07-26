@@ -16,12 +16,13 @@ handlers:
 - url: /images
   static_dir: images
 
-- url: {{http://bear-in-mind-cssi.appspot.com/}}
-  login: not required
+#- url: /login\.html
+#  login: optional
 
 - url: .*
   script: main.app
   login: required
+  secure: always
 
 libraries:
 - name: webapp2
