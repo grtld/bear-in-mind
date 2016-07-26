@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Home</title>
+    <title>Your To-Do List</title>
   </head>
   <body>
 
 <h1>Hi {{user.email}}!</h1>
-<h2>Here is your To-Do List</h2>
+<h2>Here is your to-do list.</h2>
 
 <h3>Today's Events</h3>
 
@@ -22,7 +22,7 @@ Description: {{reminder.description}}
 
 <h3>Upcoming Events</h3>
 
-    <a href="/add"><button>Add a Reminder</button></a>
+    <a href="/addreminder"><button>Add a Reminder</button></a>
     {% for user in users %}
     <a href="/?subject={{user.reminders}}">{{user.reminders}}</a>
     {% endfor %}
