@@ -28,10 +28,6 @@ Description: {{reminder.description}}
 
 <h3>Upcoming Events</h3>
 
-<<<<<<< HEAD
-=======
-    <a href="{{user.url()}}"><button>Add a Reminder</button></a>
->>>>>>> 3a4d1b817bc0b5fa7d3ee8c72c5954543c22e9ea
     {% for user in users %}
     <a href="/?subject={{user.reminders}}">{{user.reminders}}</a>
     {% endfor %}
@@ -42,7 +38,7 @@ Description: {{reminder.description}}
 <br>
 
 <div class="buttonHolder">
-        <a class="ghost-button" href="/addreminder">Add a Reminder</a>
+        <a class="ghost-button" href="{{user.url()}}">Add a Reminder</a>
         <br>
         <a class="ghost-button" href="{{logout_url}}">Log Out</a>
         <br>
