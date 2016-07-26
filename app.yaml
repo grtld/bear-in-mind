@@ -16,7 +16,7 @@ handlers:
 - url: /images
   static_dir: images
 
-- url: {{http://bear-in-mind-cssi.appspot.com/}}
+- url: http://bear-in-mind-cssi.appspot.com/
   login: not required
 
 - url: .*
