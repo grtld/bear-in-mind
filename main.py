@@ -15,13 +15,9 @@ jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(template_d
 class User(ndb.Model):
     email = ndb.StringProperty()
     reminders = ndb.StringProperty(repeated=True)
-    #a method that return the key url for a student when called
+    #a method that return the key url for a user when called
     def url(self):
-        url = '/reminder?key=' + self.key.urlsafe()
-        return url
-
-    def url(self):
-        url = '/reminder?key=' + self.key.urlsafe()
+        url = '/?key=' + self.key.urlsafe()
         return url
 
 class Reminder(ndb.Model):
@@ -46,17 +42,6 @@ class MainHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('home.html')
         self.response.write(template.render(template_values))
 
-    #post method that adds reminder into database
-    def post(self):
-        #get reminder from form
-        reminder = self.request.get('reminder')
-
-        #saves & puts the reminder from form into the database
-        new_reminder = Reminder(reminder = reminder)
-        new_reminder.put()
-
-        #shows the main page after you press submit
-        self.redirect("/")
 class ReminderHandler(webapp2.RequestHandler):
     def get(self):
         #in handler, print out student name
@@ -72,14 +57,14 @@ class ReminderHandler(webapp2.RequestHandler):
         title = self.request.get('title')
         description = self.request.get('description')
         frequency = self.request.get('frequency')
+        urlsafe_key = self.request.get('key')
 
         #put the reminders from form into the database
-        new_reminder = Reminder(title = title,description = description,frequency = int(frequency))
+        new_reminder = Reminder(title = title,description = description,frequency = int(frequency),user_key=user.key)
         new_reminder.put()
 
         #shows the home page after you press submit
         self.redirect("/")
-
 
 class LoginHandler(webapp2.RequestHandler):
     def get(self):
@@ -88,7 +73,6 @@ class LoginHandler(webapp2.RequestHandler):
 
     def post(self):
         self.redirect("/")
-
 
 app = webapp2.WSGIApplication([
 
