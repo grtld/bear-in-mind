@@ -15,12 +15,18 @@ jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(template_d
 class User(ndb.Model):
     email = ndb.StringProperty()
     reminders = ndb.StringProperty(repeated=True)
-    
+
 class Reminder(ndb.Model):
     title = ndb.TextProperty()
     description = ndb.TextProperty()
     frequency = ndb.IntegerProperty()
     user_key = ndb.KeyProperty(kind=User)
+
+    #a method that return the key url for a student when called
+    def url(self):
+        url = '/reminder?key=' + self.key.urlsafe()
+        return url
+
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -48,6 +54,10 @@ class MainHandler(webapp2.RequestHandler):
         self.redirect("/")
 class ReminderHandler(webapp2.RequestHandler):
     def get(self):
+        #in handler, print out student name
+        urlsafe_key = self.request.get('key')
+        reminder = ndb.Key(urlsafe=urlsafe_key).get()
+
         #render a response
         template = jinja_environment.get_template('add.html')
         self.response.write(template.render())
