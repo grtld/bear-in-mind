@@ -27,3 +27,43 @@
   transition: background-color 0.3s ease-in,
               color 0.3s ease-in;
 }
+
+
+
+/* home page buttons */
+
+#buttonOut {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.#buttonAdd {
+  text-align: center;
+}
+
+.home_ghost-button {
+  display: inline-block;
+  width: 150px;
+  padding: 5px;
+  color: black;
+  border: 2px solid  white;
+  border-radius: 5px;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  transition: background-color 0.2s ease-out,
+            color 0.2s ease-out;
+  margin-left:auto;
+  margin-right:auto;
+  font-family: sans-serif;
+
+}
+
+.home_ghost-button:hover,
+.home_ghost-button:active {
+  background-color: #fff;
+  color: #000;
+  transition: background-color 0.3s ease-in,
+              color 0.3s ease-in;
+}
