@@ -74,8 +74,20 @@ class ReminderHandler(webapp2.RequestHandler):
 
         #shows the home page after you press submit
         self.redirect("/")
+
+
+class LoginHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('login.html')
+        self.response.write(template.render())
+
+    def post(self):
+        self.redirect("/")
+
+
 app = webapp2.WSGIApplication([
 
     ('/addreminder', ReminderHandler),
-    ('/', MainHandler)
+    ('/', MainHandler),
+    ('/login', LoginHandler)
 ], debug=True)
