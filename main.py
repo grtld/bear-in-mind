@@ -37,16 +37,18 @@ class MainHandler(webapp2.RequestHandler):
             new_user.put()
         #show a list of the reminders
         user = User.query(User.email == user).get()
+        urlsafe_key = user.key.urlsafe()
+        key = ndb.Key(urlsafe=urlsafe_key)
+        reminders = Reminder.query(Reminder.user_key == key).fetch()
         #render response
-        template_values= {'user':user, 'logout_url':logout_url}
+        template_values= {'reminders':reminders, 'user':user, 'logout_url':logout_url}
         template = jinja_environment.get_template('home.html')
         self.response.write(template.render(template_values))
 
 class ReminderHandler(webapp2.RequestHandler):
     def get(self):
-        #in handler, print out student name
+        #get user key
         urlsafe_key = self.request.get('key')
-        reminder = ndb.Key(urlsafe=urlsafe_key).get()
 
         #render a response
         template = jinja_environment.get_template('add.html')

@@ -16,7 +16,7 @@
 
 <h3>Today's Events</h3>
 
-{% for reminder in user.reminder %}
+{% for reminder in reminders %}
 Event: {{reminder.title}}
 <br>
 Description: {{reminder.description}}
@@ -27,11 +27,6 @@ Description: {{reminder.description}}
 
 
 <h3>Upcoming Events</h3>
-
-    {% for user in users %}
-    <a href="/?subject={{user.reminders}}">{{user.reminders}}</a>
-    {% endfor %}
-
 
     <img autoplay loop poster="background.jpg" id="bgvid">
 
