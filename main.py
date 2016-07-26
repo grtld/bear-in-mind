@@ -2,6 +2,7 @@ import webapp2
 import jinja2
 import os
 import logging
+import datetime
 
 from google.appengine.ext import ndb
 from google.appengine.api import users
@@ -23,6 +24,7 @@ class Reminder(ndb.Model):
     title = ndb.TextProperty()
     description = ndb.TextProperty()
     frequency = ndb.IntegerProperty()
+    date = ndb.DateTimeProperty(auto_now_add=True)
     user_key = ndb.KeyProperty(kind=User)
 
 
@@ -34,11 +36,37 @@ class MainHandler(webapp2.RequestHandler):
         if User.query(User.email == user).get() == None:
             new_user = User(email=user)
             new_user.put()
+
         #show a list of the reminders
         user = User.query(User.email == user).get()
         urlsafe_key = user.key.urlsafe()
         key = ndb.Key(urlsafe=urlsafe_key)
+
+        #get list of reminders from specific user
         reminders = Reminder.query(Reminder.user_key == key).fetch()
+
+        # algorithm for what reminders to show for today
+        #empty list of the reminders needed to show today
+        todays_reminders = []
+
+        #get today's date
+        today = datetime.datetime.now()
+
+        #loop through all the reminders
+        for reminder in reminders:
+            #if today's day date is equal to dataTime for the reminder + frequency, add to the list of today's reminders
+            if  today.day == reminder.date.day + reminder.frequecny:
+                #make the reminder for today equal to the current reminder from the list
+                today_reminder = reminder
+                #add the reminder to the list of the reminders that are going to be posted for today
+                todays_reminders.append(today_reminder)
+                #reassigns the date of the reminder to todays date
+                #so the reminder can be compared to todays date next time its compared
+                reminder.date = today
+
+        # return the new list of of reminders needed to show for today
+        return todays_reminders
+
         #render response
         template_values= {'reminders':reminders, 'user':user, 'logout_url':logout_url}
         template = jinja_environment.get_template('home.html')
