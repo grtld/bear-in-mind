@@ -104,7 +104,7 @@ class LoginHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('login.html')
         self.response.write(template.render())
 
-        from twilio.rest import TwilioRestClient
+        """from twilio.rest import TwilioRestClient
 
         account_sid = "AC0956d071691cb608aabfa3a73b2592d6" # Your Account SID from www.twilio.com/console
         auth_token  = "6756531644d0e1845a63c235473b83dc"  # Your Auth Token from www.twilio.com/console
@@ -112,10 +112,10 @@ class LoginHandler(webapp2.RequestHandler):
         client = TwilioRestClient(account_sid, auth_token)
 
         message = client.messages.create(body="Hello from Python",
-            to="+15108629288",    # Replace with your phone number
+            to="+1{user.phone}",    # Replace with your phone number
             from_="+15104582359") # Replace with your Twilio number
 
-        print(message.sid)
+        print(message.sid)"""
 
 #    def post(self):
 #        self.redirect('/')
