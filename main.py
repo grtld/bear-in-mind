@@ -16,6 +16,7 @@ class Reminder(ndb.Model):
     title = ndb.TextProperty()
     description = ndb.TextProperty()
     frequency = ndb.IntegerProperty()
+    user_key = ndb.KeyProperty(kind=User)
 
 class User(ndb.Model):
     email = ndb.StringProperty()
@@ -23,16 +24,14 @@ class User(ndb.Model):
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        user = users.get_current_user()
+        user = str(users.get_current_user())
+        if User.query(User.email == user).get() == None:
+            new_user = User(email=user, reminders=[''])
+            new_user.put()
         #show a list of the reminders
-        #reminder = Reminder.query().fetch()
-
+        user = User.query(User.email == user).get()
         #render response
-        #template_values= {'reminder':reminder}
-
-        #template = jinja_environment.get_template('home.html')
-        #self.response.write(user)
-        template_values = {'user': user}
+        template_values= {'user':user}
         template = jinja_environment.get_template('home.html')
         self.response.write(template.render(template_values))
 
@@ -47,7 +46,7 @@ class MainHandler(webapp2.RequestHandler):
 
         #shows the main page after you press submit
         self.redirect("/")
-class AddHandler(webapp2.RequestHandler):
+class ReminderHandler(webapp2.RequestHandler):
     def get(self):
         #render a response
         template = jinja_environment.get_template('add.html')
@@ -66,6 +65,7 @@ class AddHandler(webapp2.RequestHandler):
         #shows the home page after you press submit
         self.redirect("/")
 app = webapp2.WSGIApplication([
-    ('/add', AddHandler),
+
+    ('/addreminder', ReminderHandler),
     ('/', MainHandler)
 ], debug=True)
