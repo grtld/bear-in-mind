@@ -11,7 +11,6 @@ from google.appengine.api import users
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir))
 
-
 #model for message
 class User(ndb.Model):
     email = ndb.StringProperty()
@@ -24,9 +23,10 @@ class Reminder(ndb.Model):
     title = ndb.TextProperty()
     description = ndb.TextProperty()
     frequency = ndb.IntegerProperty()
-    date = ndb.DateTimeProperty(auto_now_add=True)
+    month = ndb.IntegerProperty()
+    day = ndb.IntegerProperty()
+    year = ndb.IntegerProperty()
     user_key = ndb.KeyProperty(kind=User)
-
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -86,11 +86,14 @@ class ReminderHandler(webapp2.RequestHandler):
         title = self.request.get('title')
         description = self.request.get('description')
         frequency = self.request.get('frequency')
+        month = self.request.get('month')
+        day = self.request.get('day')
+        year = self.request.get('year')
         urlsafe_key = self.request.get('key')
         key = ndb.Key(urlsafe=urlsafe_key)
 
         #put the reminders from form into the database
-        new_reminder = Reminder(title = title,description = description,frequency = int(frequency),user_key=key)
+        new_reminder = Reminder(title=title, description=description, frequency=int(frequency), month=month, day=day, year=year, user_key=key)
         new_reminder.put()
 
         #shows the home page after you press submit
