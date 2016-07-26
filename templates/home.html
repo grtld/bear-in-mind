@@ -28,7 +28,6 @@ Description: {{reminder.description}}
 
 <h3>Upcoming Events</h3>
 
-    <a href="/addreminder"><button>Add a Reminder</button></a>
     {% for user in users %}
     <a href="/?subject={{user.reminders}}">{{user.reminders}}</a>
     {% endfor %}
@@ -36,7 +35,14 @@ Description: {{reminder.description}}
 
     <img autoplay loop poster="background.jpg" id="bgvid">
 
-<a href="{{logout_url}}"><button>Log Out</button></a>
+<br>
+
+<div class="buttonHolder">
+        <a class="ghost-button" href="/addreminder">Add a Reminder</a>
+        <br>
+        <a class="ghost-button" href="{{logout_url}}">Log Out</a>
+        <br>
+</div>
 
   </body>
 </html>
