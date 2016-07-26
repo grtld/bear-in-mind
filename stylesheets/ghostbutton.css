@@ -1,0 +1,27 @@
+.buttonHolder {
+  text-align: center;
+}
+
+.ghost-button {
+  display: inline-block;
+  width: 250px;
+  padding: 10px;
+  color: black;
+  border: 2px solid  #fff;
+  border-radius: 5px;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  transition: background-color 0.2s ease-out,
+            color 0.2s ease-out;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.ghost-button:hover,
+.ghost-button:active {
+  background-color: #fff;
+  color: #000;
+  transition: background-color 0.3s ease-in,
+              color 0.3s ease-in;
+}
