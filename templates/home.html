@@ -17,10 +17,8 @@
 <h3>Today's Events</h3>
 
 {% for reminder in reminders %}
-Event: {{reminder.title}}
-<br>
-Description: {{reminder.description}}
-<br>
+<div><b>Event: {{reminder.title}}</b>
+<br>Description: {{reminder.description}}</div>
 {% endfor %}
 
 
