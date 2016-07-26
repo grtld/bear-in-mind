@@ -49,10 +49,9 @@ class MainHandler(webapp2.RequestHandler):
         # algorithm for what reminders to show for today
         #empty list of the reminders needed to show today
         todays_reminders = []
-
+        upcoming_reminders = []
         #get today's date
         today = datetime.datetime.now()
-
         #loop through all the reminders
         for reminder in reminders:
             #today's date
@@ -67,12 +66,11 @@ class MainHandler(webapp2.RequestHandler):
                 today_reminder = reminder
                 #add the reminder to the list of the reminders that are going to be posted for today
                 todays_reminders.append(today_reminder)
-
-        # return the new list of of reminders needed to show for today
-            return todays_reminders
+            else:
+                upcoming_reminders.append(reminder)
 
         #render response
-        template_values= {'reminders':reminders, 'user':user, 'logout_url':logout_url}
+        template_values= {'todays_reminders':todays_reminders, 'upcoming_reminders':upcoming_reminders, 'user':user, 'logout_url':logout_url}
         template = jinja_environment.get_template('home.html')
         self.response.write(template.render(template_values))
 
@@ -90,9 +88,9 @@ class ReminderHandler(webapp2.RequestHandler):
         title = self.request.get('title')
         description = self.request.get('description')
         frequency = self.request.get('frequency')
-        month = self.request.get('month')
-        day = self.request.get('day')
-        year = self.request.get('year')
+        month = int(self.request.get('month'))
+        day = int(self.request.get('day'))
+        year = int(self.request.get('year'))
         urlsafe_key = self.request.get('key')
         key = ndb.Key(urlsafe=urlsafe_key)
 
