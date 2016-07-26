@@ -2,10 +2,11 @@ import webapp2
 import jinja2
 import os
 import logging
-import datetime
 
 from google.appengine.ext import ndb
 from google.appengine.api import users
+from datetime import date
+import datetime
 
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
@@ -54,21 +55,24 @@ class MainHandler(webapp2.RequestHandler):
 
         #loop through all the reminders
         for reminder in reminders:
+            #today's date
+            d0 = date(today.year, today.month, today.day)
+            #date of reminder
+            d1 = date(reminder.year, reminder.month, reminder.day)
+            delta = d0 - d1
+            difference = delta.days
             #if today's day date is equal to dataTime for the reminder + frequency, add to the list of today's reminders
-            if  today.datetime.day == reminder.date.day + reminder.frequecny:
+            if  difference % reminder.frequency == 0:
                 #make the reminder for today equal to the current reminder from the list
                 today_reminder = reminder
                 #add the reminder to the list of the reminders that are going to be posted for today
                 todays_reminders.append(today_reminder)
-                #reassigns the date of the reminder to todays date
-                #so the reminder can be compared to todays date next time its compared
-                reminder.date = today
 
-                # return the new list of of reminders needed to show for today
-                return todays_reminders
+        # return the new list of of reminders needed to show for today
+            return todays_reminders
 
         #render response
-        template_values= {'todays_reminders':todays_reminders, 'user':user, 'logout_url':logout_url}
+        template_values= {'reminders':reminders, 'user':user, 'logout_url':logout_url}
         template = jinja_environment.get_template('home.html')
         self.response.write(template.render(template_values))
 
