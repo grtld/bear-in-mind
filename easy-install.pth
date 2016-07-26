@@ -1,0 +1,6 @@
+import sys; sys.__plen = len(sys.path)
+./twilio-6.3.dev0-py2.7.egg
+./httplib2-0.9.2-py2.7.egg
+./six-1.10.0-py2.7.egg
+./pytz-2016.6.1-py2.7.egg
+import sys; new=sys.path[sys.__plen:]; del sys.path[sys.__plen:]; p=getattr(sys,'__egginsert',0); sys.path[p:p]=new; sys.__egginsert = p+len(new)
