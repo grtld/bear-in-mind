@@ -16,17 +16,15 @@ class User(ndb.Model):
     email = ndb.StringProperty()
     reminders = ndb.StringProperty(repeated=True)
 
+    def url(self):
+        url = '/reminder?key=' + self.key.urlsafe()
+        return url
+
 class Reminder(ndb.Model):
     title = ndb.TextProperty()
     description = ndb.TextProperty()
     frequency = ndb.IntegerProperty()
     user_key = ndb.KeyProperty(kind=User)
-
-    #a method that return the key url for a student when called
-    def url(self):
-        url = '/reminder?key=' + self.key.urlsafe()
-        return url
-
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
