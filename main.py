@@ -65,7 +65,8 @@ class ReminderHandler(webapp2.RequestHandler):
         title = self.request.get('title')
         description = self.request.get('description')
         frequency = self.request.get('frequency')
-
+        urlsafe_key = self.request.get('key')
+        
         #put the reminders from form into the database
         new_reminder = Reminder(title = title,description = description,frequency = int(frequency))
         new_reminder.put()
