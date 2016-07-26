@@ -28,7 +28,7 @@ Description: {{reminder.description}}
 
 <h3>Upcoming Events</h3>
 
-    <a href="/addreminder"><button>Add a Reminder</button></a>
+    <a href="{{user.url()}}"><button>Add a Reminder</button></a>
     {% for user in users %}
     <a href="/?subject={{user.reminders}}">{{user.reminders}}</a>
     {% endfor %}
