@@ -68,7 +68,7 @@ class MainHandler(webapp2.RequestHandler):
                 #add the reminder to the list of the reminders that are going to be posted for today
                 todays_reminders.append(today_reminder)
 
-        # return the new list of of reminders needed to show for today
+            # return the new list of of reminders needed to show for today
             return todays_reminders
 
         #render response
