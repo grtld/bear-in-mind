@@ -11,16 +11,32 @@
 <div class="background">
 <body>
 
+  <div id="buttonOut">
+        <a class="home_ghost-button" href="{{logout_url}}">Log Out</a>
+  </div>
+
 <h1>Hi {{user.email}}!</h1>
+
 <h2>Here is your to-do list.</h2>
+<br>
 
 <h3>Today's Events</h3>
 
+
+
 {% for todays_reminder in todays_reminders %}
-<div><b>Event: {{todays_reminder.title}}</b>
-<br>Description: {{todays_reminder.description}}</div>
+<div id="today">
+  <b>Event:</b> {{todays_reminder.title}}
+<br>
+  <b>Description:</b> {{todays_reminder.description}}
+</div>
 {% endfor %}
 
+
+
+<div id="buttonAdd">
+<a class="home_ghost-button" href="{{user.url()}}">Add a Reminder</a>
+</div>
 
 
 <h3>Upcoming Events</h3>
@@ -30,6 +46,7 @@
 {% endfor %}
     <img autoplay loop poster="background.jpg" id="bgvid">
 
+<<<<<<< HEAD
 <br>
 
   <div class="buttonHolder">
@@ -43,6 +60,9 @@
         <br>
       </div>
 </body>
+=======
+  </body>
+>>>>>>> d548811467d571d4b52d01a836579191b5bc44b6
 
 </div>
 </html>
