@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Remove A Reminder</title>
+  </head>
+  <body>
+    <h1>Your Reminders</h1>
+    {% for reminder in reminders %}
+    {{reminder.title}}
+    <br>{{reminder.description}}
+    <br>
+    {% endfor %}
+  </body>
+</html>
