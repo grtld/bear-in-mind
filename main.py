@@ -74,8 +74,8 @@ class LoginHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('login.html')
         self.response.write(template.render())
 
-    def post(self):
-        self.redirect('/login')
+#    def post(self):
+#        self.redirect('/')
 
 app = webapp2.WSGIApplication([
 

@@ -16,13 +16,14 @@ handlers:
 - url: /images
   static_dir: images
 
-#- url: /login\.html
-#  login: optional
+- url: /
+  script: main.app
+  login: optional
 
 - url: .*
   script: main.app
   login: required
-  secure: always
+#  secure: always
 
 libraries:
 - name: webapp2
