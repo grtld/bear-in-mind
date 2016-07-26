@@ -66,7 +66,7 @@ class ReminderHandler(webapp2.RequestHandler):
         new_reminder.put()
 
         #shows the home page after you press submit
-        self.redirect("/")
+        self.redirect("/home")
 
 class LoginHandler(webapp2.RequestHandler):
     def get(self):
