@@ -30,20 +30,19 @@ class Reminder(ndb.Model):
     frequency = ndb.IntegerProperty()
     user_key = ndb.KeyProperty(kind=User)
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 6f032f6e31fe44916fc8393550ad6f1296279bd8
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        user = str(users.get_current_user())
+        user = users.get_current_user()
+        logout_url = users.create_logout_url('/')
+        user = str(user)
         if User.query(User.email == user).get() == None:
             new_user = User(email=user, reminders=[''])
             new_user.put()
         #show a list of the reminders
         user = User.query(User.email == user).get()
         #render response
-        template_values= {'user':user}
+        template_values= {'user':user, 'logout_url':logout_url}
         template = jinja_environment.get_template('home.html')
         self.response.write(template.render(template_values))
 
