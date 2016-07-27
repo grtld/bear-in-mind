@@ -6,13 +6,13 @@
   </head>
   <body>
     <h1>Your Reminders</h1>
-    {% for reminder in reminders %}
     <form method="post">
-      <input type=hidden name="reminder" value="{{reminder}}">{{reminder.title}}
+      {% for reminder in reminders %}
+      <input type="checkbox" name="reminder" value={{reminder.key.urlsafe()}}>{{reminder.title}}
       <br>{{reminder.description}}</input>
-      <br><button>Delete Reminder</button>
-    </form>
-    <br><br>
+    <br>
     {% endfor %}
+    <br><button>Delete Reminders</button>
+    </form>
   </body>
 </html>
