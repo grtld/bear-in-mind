@@ -117,8 +117,8 @@ class RemoveHandler(webapp2.RequestHandler):
     def post(self):
         urlsafe_key = self.request.get('key')
         key = ndb.Key(urlsafe=urlsafe_key)
-        #reminders = Reminder.query(Reminder.user_key == key).fetch()
-        reminder = self.request.get('reminder')
+        reminders = Reminder.query(Reminder.user_key == key).fetch()
+        reminder = self.request.get('reminder').urlsafe()
         reminder_key = ndb.Key(urlsafe=reminder)
         reminders.reminder_key.delete()
         #shows the home page after you press submit
