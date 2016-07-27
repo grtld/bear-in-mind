@@ -17,7 +17,7 @@ class User(ndb.Model):
     email = ndb.StringProperty()
     #a method that return the key url for a user when called
     def url(self):
-        url = '/addreminder?key=' + self.key.urlsafe()
+        url = '?key=' + self.key.urlsafe()
         return url
 
 class Reminder(ndb.Model):
@@ -101,6 +101,29 @@ class ReminderHandler(webapp2.RequestHandler):
         #shows the home page after you press submit
         self.redirect("/home")
 
+class RemoveHandler(webapp2.RequestHandler):
+    def get(self):
+        #get user key
+        urlsafe_key = self.request.get('key')
+        key = ndb.Key(urlsafe=urlsafe_key)
+
+        #get list of reminders from specific user
+        reminders = Reminder.query(Reminder.user_key == key).fetch()
+        #render a response
+        template_vals = {'reminders': reminders}
+        template = jinja_environment.get_template('remove.html')
+        self.response.write(template.render(template_vals))
+
+    def post(self):
+        #get reminder from form
+
+        #put the reminders from form into the database
+        new_reminder = Reminder(title=title, description=description, frequency=int(frequency), month=month, day=day, year=year, user_key=key)
+        new_reminder.put()
+
+        #shows the home page after you press submit
+        self.redirect("/home")
+
 class LoginHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('login.html')
@@ -126,5 +149,6 @@ app = webapp2.WSGIApplication([
 
     ('/addreminder', ReminderHandler),
     ('/home', MainHandler),
+    ('/removereminder', RemoveHandler),
     ('/', LoginHandler)
 ], debug=True)

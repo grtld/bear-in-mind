@@ -55,7 +55,19 @@
 {% endfor %}
     <img autoplay loop poster="background.jpg" id="bgvid">
 
-  </body>
+<br>
+
+  <div class="buttonHolder">
+        <a class="ghost-button" href="/addreminder{{user.url()}}">Add a Reminder</a>
+        <br>
+        <br>
+        <a class="ghost-button" href="/removereminder{{user.url()}}">Remove A Reminder</a>
+        <br>
+        <br>
+        <a class="ghost-button" href="{{logout_url}}">Log Out</a>
+        <br>
+      </div>
+</body>
 
 </div>
 </html>
