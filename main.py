@@ -115,14 +115,17 @@ class RemoveHandler(webapp2.RequestHandler):
         self.response.write(template.render(template_vals))
 
     def post(self):
-        #get reminder from form
-
-        #put the reminders from form into the database
-        new_reminder = Reminder(title=title, description=description, frequency=int(frequency), month=month, day=day, year=year, user_key=key)
-        new_reminder.put()
-
+        urlsafe_key = self.request.get('key')
+        key = ndb.Key(urlsafe=urlsafe_key)
+        #reminders = Reminder.query(Reminder.user_key == key).fetch()
+        reminder = self.request.get('reminder')
+        '''
+        reminder_key = ndb.Key(urlsafe=rem_reminder)
+        reminders.reminder_key.delete()
         #shows the home page after you press submit
-        self.redirect("/home")
+        self.redirect("/removereminder?="+urlsafe_key)
+        '''
+        self.response.write(reminder)
 
 class LoginHandler(webapp2.RequestHandler):
     def get(self):

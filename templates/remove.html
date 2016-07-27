@@ -7,9 +7,12 @@
   <body>
     <h1>Your Reminders</h1>
     {% for reminder in reminders %}
-    {{reminder.title}}
-    <br>{{reminder.description}}
-    <br>
+    <form method="post">
+      <input type=hidden name="reminder" value="{{reminder}}">"{{reminder.title}}
+      <br>{{reminder.description}}</input>
+      <br><button>Delete Reminder</button>
+    </form>
+    <br><br>
     {% endfor %}
   </body>
 </html>
