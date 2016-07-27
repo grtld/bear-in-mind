@@ -8,7 +8,7 @@
     <h1>Your Reminders</h1>
     {% for reminder in reminders %}
     <form method="post">
-      <input type=hidden name="reminder" value="{{reminder}}">"{{reminder.title}}
+      <input type=hidden name="reminder" value="{{reminder}}">{{reminder.title}}
       <br>{{reminder.description}}</input>
       <br><button>Delete Reminder</button>
     </form>
