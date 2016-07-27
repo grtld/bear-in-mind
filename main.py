@@ -78,7 +78,6 @@ class ReminderHandler(webapp2.RequestHandler):
     def get(self):
         #get user key
         urlsafe_key = self.request.get('key')
-
         #render a response
         template = jinja_environment.get_template('add.html')
         self.response.write(template.render())
@@ -99,7 +98,7 @@ class ReminderHandler(webapp2.RequestHandler):
         new_reminder.put()
 
         #shows the home page after you press submit
-        self.redirect("/addreminder?="+urlsafe_key)
+        self.redirect("/addreminder?key="+urlsafe_key)
 
 class RemoveHandler(webapp2.RequestHandler):
     def get(self):
@@ -116,11 +115,12 @@ class RemoveHandler(webapp2.RequestHandler):
 
     def post(self):
         urlsafe_key = self.request.get('key')
-        urlsafe_key_reminder = self.request.get('reminder')
-        reminder_key = ndb.Key(urlsafe=urlsafe_key_reminder)
-        reminder = reminder_key.get()
-        reminder.key.delete()
-        self.redirect('/home?='+urlsafe_key)
+        urlsafe_key_reminders = self.request.params.getall('reminder')
+        for urlsafe_key_reminder in urlsafe_key_reminders:
+            reminder_key = ndb.Key(urlsafe=urlsafe_key_reminder)
+            reminder = reminder_key.get()
+            reminder.key.delete()
+        self.redirect('/removereminder?key='+urlsafe_key)
 
 class LoginHandler(webapp2.RequestHandler):
     def get(self):
