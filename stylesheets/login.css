@@ -2,7 +2,9 @@
     font-family: myFirstFont;
     src: url(larch.ttf);
 }
-body { margin: 0; }
+body {
+  margin: 0;
+}
 
 section#bottom {
 	box-sizing: border-box;
@@ -17,13 +19,17 @@ section:nth-of-type(even) {
 }
 
 p {
-  font-size: 30px;
+  font-size: 18px;
   font-family: sans-serif;
 }
 
 #arrow {
   position: absolute;
   left: 47.2%;
+}
+
+img {
+  position: absolute;
 }
 
 
@@ -47,7 +53,8 @@ video#bgvid {
 
 
 h1 {
-  font-family: myFirstFont;
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  text-transform: uppercase;
   font-size: 100px;
   padding: 80px 50px;
   text-align: center;
@@ -55,8 +62,8 @@ h1 {
 }
 
 h1#bottom {
-  font-family: myFirstFont;
-  /*  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif; */
+  /*font-family: myFirstFont;*/
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
   font-size: 80px;
   padding: 50px;
   margin-top: -65px;
@@ -116,12 +123,30 @@ h2 {
 #line {
   border: 2px solid rgba(220, 125, 0, 0.8);
   height: 50px;
-  width: 33%;
-  left: 34%;
-  top: 1070px;
+  width: 45%;
+  left: 27.2%;
+  top: 1090px;
   position: absolute;
   border-top-style: solid;
   border-right-style: none;
   border-left-style: none;
   border-bottom-style: none;
+}
+
+td {
+  font-size: 26px;
+  font-family: sans-serif;
+}
+
+table {
+  margin-top: -90px;
+}
+
+table#pictures {
+  position: absolute;
+  margin-top: -420px;
+  border-spacing: 80px;
+  padding: 1px;
+  border-collapse: separate;
+
 }
