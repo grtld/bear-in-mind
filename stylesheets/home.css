@@ -1,3 +1,25 @@
+#bar {
+  background-color: yellow;
+  height: 55px;
+  width: auto;
+  opacity: 0.5;
+}
+
+#bear {
+  position: absolute;
+  height: 500px;
+  width: auto;
+  left:10px;
+  background: url(bear.png) no-repeat;
+}
+
+#mind {
+  position: absolute;
+  left: 100px;
+  top: 1px;
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+}
+
 .background {
   position: fixed;
   top: 50%;
@@ -14,22 +36,43 @@
   /*background: url(post-its.jpg) no-repeat; */
   background-size: cover;
   opacity: .8;
-  background-color: rgba(50, 0, 0, 0.3);
+  background-color: rgba(200, 100, 0, 0.5);
 }
 
 
 h1 {
-  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-family: sans-serif;
   text-align: center;
   font-size: 45px;
 }
 
 h2 {
-  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-family: sans-serif;
   text-align: center;
 }
 
+#line {
+  border: 2px solid rgba(220, 125, 0, 0.8);
+  height: 50px;
+  width: 25%;
+  left: 37%;
+  position: absolute;
+  border-top-style: solid;
+  border-right-style: none;
+  border-left-style: none;
+  border-bottom-style: none;
+
+}
+
 h3 {
-  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+#today {
+  text-align: center;
+}
+
+#upcoming {
   text-align: center;
 }

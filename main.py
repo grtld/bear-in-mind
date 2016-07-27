@@ -113,7 +113,7 @@ class LoginHandler(webapp2.RequestHandler):
 
         client = TwilioRestClient(account_sid, auth_token)
 
-        message = client.messages.create(body="Hello from Python",
+        message = client.messages.create(body="Daily Reminder: {{user.reminder}}",
             to="+1{user.phone}",    # Replace with your phone number
             from_="+15104582359") # Replace with your Twilio number
 
