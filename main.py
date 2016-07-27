@@ -98,7 +98,7 @@ class ReminderHandler(webapp2.RequestHandler):
         new_reminder.put()
 
         #shows the home page after you press submit
-        self.redirect("/addreminder?key="+urlsafe_key)
+        self.redirect("/home?key="+urlsafe_key)
 
 class RemoveHandler(webapp2.RequestHandler):
     def get(self):
@@ -120,7 +120,7 @@ class RemoveHandler(webapp2.RequestHandler):
             reminder_key = ndb.Key(urlsafe=urlsafe_key_reminder)
             reminder = reminder_key.get()
             reminder.key.delete()
-        self.redirect('/removereminder?key='+urlsafe_key)
+        self.redirect('/home?key='+urlsafe_key)
 
 class LoginHandler(webapp2.RequestHandler):
     def get(self):
