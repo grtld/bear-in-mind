@@ -21,6 +21,10 @@ p {
   font-family: sans-serif;
 }
 
+#arrow {
+  position: absolute;
+  left: 47.2%;
+}
 
 
 video#bgvid {
@@ -114,14 +118,10 @@ h2 {
   height: 50px;
   width: 33%;
   left: 34%;
-  top: 134%;
+  top: 139%;
   position: absolute;
   border-top-style: solid;
   border-right-style: none;
   border-left-style: none;
   border-bottom-style: none;
-}
-
-.ghost-button {
-
 }
