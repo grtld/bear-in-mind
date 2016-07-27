@@ -11,13 +11,19 @@
 <div class="background">
 <body>
 
+  <div id="bar"></div>
+  <div id="bear"></div>
+  <p id="mind">Bear in Mind</p>
   <div id="buttonOut">
         <a class="home_ghost-button" href="{{logout_url}}">Log Out</a>
   </div>
 
+
+
 <h1>Hi {{user.email}}!</h1>
 
 <h2>Here is your to-do list.</h2>
+<div id="line"></div>
 <br>
 
 <h3>Today's Events</h3>
@@ -41,8 +47,11 @@
 
 <h3>Upcoming Events</h3>
 {% for upcoming_reminder in upcoming_reminders %}
-<div><b>Event: {{upcoming_reminder.title}}</b>
-<br>Description: {{upcoming_reminder.description}}</div>
+<div id="upcoming">
+  <b>Event:</b> {{upcoming_reminder.title}}
+<br>
+  <b>Description:</b> {{upcoming_reminder.description}}
+</div>
 {% endfor %}
     <img autoplay loop poster="background.jpg" id="bgvid">
 

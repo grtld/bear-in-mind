@@ -3,29 +3,27 @@
 }
 
 .ghost-button {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+
   display: inline-block;
-  width: 250px;
-  padding: 10px;
+  width: 200px;
+  padding: 8px;
   color: black;
-  border: 2px solid  #fff;
-  border-radius: 5px;
+  border: 2px solid black;
   text-align: center;
   outline: none;
   text-decoration: none;
   transition: background-color 0.2s ease-out,
-            color 0.2s ease-out;
-  margin-left:auto;
-  margin-right:auto;
-  font-family: sans-serif;
-
+              border-color 0.2s ease-out;
 }
-
 .ghost-button:hover,
 .ghost-button:active {
-  background-color: #fff;
-  color: #000;
+  background-color: #fff; /* fallback */
+  background-color: rgba(255, 255, 255, 0.4);
+  border-color: #fff; /* fallback */
+  border-color: rgba(255, 255, 255, 0.4);
   transition: background-color 0.3s ease-in,
-              color 0.3s ease-in;
+              border-color 0.3s ease-in;
 }
 
 
@@ -43,27 +41,25 @@
 }
 
 .home_ghost-button {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+
   display: inline-block;
   width: 150px;
   padding: 5px;
-  color: black;
-  border: 2px solid  white;
-  border-radius: 5px;
+  color: #fff;
+  border: 2px solid #fff;
   text-align: center;
   outline: none;
   text-decoration: none;
   transition: background-color 0.2s ease-out,
-            color 0.2s ease-out;
-  margin-left:auto;
-  margin-right:auto;
-  font-family: sans-serif;
-
+              border-color 0.2s ease-out;
 }
-
 .home_ghost-button:hover,
 .home_ghost-button:active {
-  background-color: #fff;
-  color: #000;
+  background-color: #fff; /* fallback */
+  background-color: rgba(255, 255, 255, 0.4);
+  border-color: #fff; /* fallback */
+  border-color: rgba(255, 255, 255, 0.4);
   transition: background-color 0.3s ease-in,
-              color 0.3s ease-in;
+              border-color 0.3s ease-in;
 }
