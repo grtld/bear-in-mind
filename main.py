@@ -15,6 +15,7 @@ jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(template_d
 #model for message
 class User(ndb.Model):
     email = ndb.StringProperty()
+    phone = ndb.StringProperty()
     #a method that return the key url for a user when called
     def url(self):
         url = '?key=' + self.key.urlsafe()
@@ -35,7 +36,7 @@ class MainHandler(webapp2.RequestHandler):
         logout_url = users.create_logout_url('/')
         user = str(user)
         if User.query(User.email == user).get() == None:
-            new_user = User(email=user)
+            new_user = User(email=user, phone="")
             new_user.put()
 
         #show a list of the reminders
