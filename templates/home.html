@@ -15,12 +15,27 @@
   <div id="bear"></div>
   <p id="mind">Bear in Mind</p>
   <div id="buttonOut">
-        <a class="home_ghost-button" href="{{logout_url}}">Log Out</a>
+    <a class="home_ghost-button" href="{{logout_url}}">Log Out</a>
   </div>
 
 
 
 <h1>Hi {{user.email}}!</h1>
+<div>
+  {% if user.phone == "" %}
+  If you would like to receive your reminders as a text message, please enter your phone number.
+  <br>
+  <form method="addphone">
+    <input type=text name="phone" placeholder="##########">
+    <button>Submit</button>
+  </form>
+  {% else %}
+  <form method="send">
+    Your reminders will be sent to {{user.phone}}.
+    <button>Send today's reminders</button>
+  </form>
+  {% endif %}
+</div>
 
 <h2>Here is your to-do list.</h2>
 <div id="line"></div>
