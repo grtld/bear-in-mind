@@ -74,7 +74,18 @@ class MainHandler(webapp2.RequestHandler):
         template_values= {'todays_reminders':todays_reminders, 'upcoming_reminders':upcoming_reminders, 'user':user, 'logout_url':logout_url}
         template = jinja_environment.get_template('home.html')
         self.response.write(template.render(template_values))
+        '''
+    def addphone(self):
+        user = users.get_current_user()
+        user_key = user.get()
+        phone = self.request.get('phone')
+        user_key.phone = phone
+        user_key.put()
+        self.response.write(template.render(user.email))
 
+    def send(self):
+        self.response.write('world')
+        '''
 class ReminderHandler(webapp2.RequestHandler):
     def get(self):
         #get user key
