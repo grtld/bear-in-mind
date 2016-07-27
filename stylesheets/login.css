@@ -162,9 +162,7 @@ ul {
     top: 0;
     width: 100%;
     padding: 0px;
-
-    display:inline-block;
-    vertical-align:top;
+    background: #000000 url('stylesheets/bear_logo.png') no-repeat top left;
 }
 
 li {
