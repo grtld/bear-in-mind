@@ -15,7 +15,6 @@
       </form>
     {% else %}
         <br>Your reminders will be sent to {{user.phone}}.
-        <input type="hidden" name="key" value="{{urlsafe_key}}">
         <br><br>Not your phone number?
         <br>
       <form action="/addphone" method="get">
