@@ -47,20 +47,20 @@
 <br>
 
 {% for todays_reminder in todays_reminders %}
-<div id="today">
-  <h4>Event:</h4> {{todays_reminder.title}}
+<div id="event">
+  Event: {{todays_reminder.title}}
 <br>
-  <h4>Description:</h4> {{todays_reminder.description}}
+  Description: {{todays_reminder.description}}
 </div>
 {% endfor %}
 
 <h2>Upcoming Events</h2>
 <div id="line"></div>
 {% for upcoming_reminder in upcoming_reminders %}
-<div id="upcoming">
-  <h4>Event:</h4> {{upcoming_reminder.title}}
+<div id="event">
+  Event: {{upcoming_reminder.title}}
 <br>
-  <h4>Description:</h4> {{upcoming_reminder.description}}
+  Description: {{upcoming_reminder.description}}
 </div>
 {% endfor %}
     <img autoplay loop poster="background.jpg" id="bgvid">

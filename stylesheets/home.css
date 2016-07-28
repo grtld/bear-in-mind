@@ -80,14 +80,7 @@ h4{
   font-weight: 100;
 }
 
-#today {
-  font-family: sans-serif;
-  text-align: center;
-  color: #fff;
-  font-weight: 100;
-}
-
-#upcoming {
+#event {
   font-family: sans-serif;
   text-align: center;
   color: #fff;
