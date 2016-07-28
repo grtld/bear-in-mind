@@ -119,7 +119,7 @@ class SendTextHandler(webapp2.RequestHandler):
         todays_message = ""
 
         for todays_reminder in todays_reminders:
-            todays_message = todays_message + '\n' + todays_reminder.title
+            todays_message = todays_message + '\n' + "- " + todays_reminder.title
 
         account_sid = "AC0956d071691cb608aabfa3a73b2592d6" # Your Account SID from www.twilio.com/console
         auth_token  = "6756531644d0e1845a63c235473b83dc"  # Your Auth Token from www.twilio.com/console

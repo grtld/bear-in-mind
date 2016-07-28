@@ -81,6 +81,28 @@
         </tr>
           {% endfor %}
 
+<<<<<<< HEAD
+=======
+
+    <!-- USER PHONE NUMBER -->
+    <div>
+      {% if user.phone == "" %}
+      If you would like to receive your reminders as a text message, please enter your phone number.
+      <br>
+        <form action="/addphone" method="get">
+          <input type="hidden" name="key" value="{{urlsafe_key}}">
+          <input type=text name="phone" placeholder="##########">
+          <input type="submit" value="Submit">
+        </form>
+      {% else %}
+        <form action="/sendtext" method="get">
+          <br>Your reminders will be sent to {{user.phone}}.
+          <input type="hidden" name="key" value="{{urlsafe_key}}">
+          <br><input type="submit" value="Send today's reminders">
+          <br><a href="/">Not your phone number? Click here to change</a>
+        </form>
+      {% endif %}
+>>>>>>> 6ec1d09028ccc7b6dbc870d997f7cf4eb0529f44
     </div>
   </table>
   <br>
