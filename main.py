@@ -80,7 +80,6 @@ class AddPhoneHandler(webapp2.RequestHandler):
         phone = self.request.get('phone')
         user_key = ndb.Key(urlsafe=urlsafe_key)
         user = user_key.get()
-        logging.info('phone #:' + phone)
         user.phone = phone
         user.put()
         self.redirect('/home?key=' + urlsafe_key)
@@ -91,17 +90,44 @@ class SendTextHandler(webapp2.RequestHandler):
         urlsafe_key = self.request.get('key')
         user_key = ndb.Key(urlsafe=urlsafe_key)
         user = user_key.get()
-        logging.info('phone#: ' )
-        '''
+
+        reminders = Reminder.query(Reminder.user_key == user_key).fetch()
+
+        # algorithm for what reminders to show for today
+        #empty list of the reminders needed to show today
+        todays_reminders = []
+        #get today's date
+        today = datetime.datetime.now()
+        #loop through all the reminders
+        for reminder in reminders:
+            #today's date
+            d0 = date(today.year, today.month, today.day)
+            #date of reminder
+            d1 = date(reminder.year, reminder.month, reminder.day)
+            delta = d0 - d1
+            difference = delta.days
+            #if today's day date is equal to dataTime for the reminder + frequency, add to the list of today's reminders
+            if  difference % reminder.frequency == 0:
+                #make the reminder for today equal to the current reminder from the list
+                today_reminder = reminder
+                #add the reminder to the list of the reminders that are going to be posted for today
+                todays_reminders.append(today_reminder)
+
+        todays_message = ""
+
+        for todays_reminder in todays_reminders:
+            todays_message = todays_message + '\n' + todays_reminder.title
+
         account_sid = "AC0956d071691cb608aabfa3a73b2592d6" # Your Account SID from www.twilio.com/console
         auth_token  = "6756531644d0e1845a63c235473b83dc"  # Your Auth Token from www.twilio.com/console
 
         client = TwilioRestClient(account_sid, auth_token)
-        message = client.messages.create(body="Daily Reminder: ",
-            to="+1{user.phone}",    # Replace with your phone number
+        message = client.messages.create(body="Daily Reminder: " + todays_message,
+            to="+1" + user.phone,    # Replace with your phone number
             from_="+15104582359") # Replace with your Twilio number
         print(message.sid)
-        '''
+
+        self.redirect('/home?key=' + urlsafe_key)
 
 class ReminderHandler(webapp2.RequestHandler):
     def get(self):
