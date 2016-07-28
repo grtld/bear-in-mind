@@ -31,8 +31,7 @@
     <!-- <div id="event"> -->
     <form id="remove" method="post">
       {% for reminder in reminders %}
-      <input type="checkbox" name="reminder" value={{reminder.key.urlsafe()}}>{{reminder.title}}
-      <br>{{reminder.description}}</input>
+      <input type="checkbox" name="reminder" value={{reminder.key.urlsafe()}}>{{reminder.title}} : {{reminder.description}}</input>
     <br>
     {% endfor %}
     <br><input type="submit" value="Remove reminders">
