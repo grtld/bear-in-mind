@@ -42,7 +42,7 @@
 
 .home_ghost-button {
   font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
-
+  margin-top: -20px;
   display: inline-block;
   width: 150px;
   padding: 5px;
@@ -54,6 +54,17 @@
   transition: background-color 0.2s ease-out,
               border-color 0.2s ease-out;
 }
+
+#left {
+  position: absolute;
+  left: 30%;
+}
+
+#right {
+  position: absolute;
+
+}
+
 .home_ghost-button:hover,
 .home_ghost-button:active {
   background-color: #fff; /* fallback */
