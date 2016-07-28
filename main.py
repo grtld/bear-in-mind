@@ -42,6 +42,9 @@ class MainHandler(webapp2.RequestHandler):
         user = User.query(User.email == str(user)).get()
         urlsafe_key = user.key.urlsafe()
         key = ndb.Key(urlsafe=urlsafe_key)
+        if self.request.get('key') == "":
+            self.redirect('/home?key=' + urlsafe_key)
+
         #get list of reminders from specific user
         reminders = Reminder.query(Reminder.user_key == key).fetch()
 

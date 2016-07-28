@@ -95,6 +95,10 @@ td {
   font-family: sans-serif;
 }
 
+/*tr {
+  table: -80px;
+}*/
+
 table {
   margin-top: -90px;
 }
@@ -140,7 +144,6 @@ div#line2 {
   border-right-style: none;
   border-left-style: none;
   border-bottom-style: none;
-  z-index: -1;
 }
 
 div#line3 {
@@ -148,7 +151,7 @@ div#line3 {
   height: 50px;
   width: 100%;
   margin-top: -17px;
-  margin-left: -29px;
+  margin-left: 0;
   position: absolute;
   border-top-style: solid;
   border-right-style: none;
