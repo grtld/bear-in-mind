@@ -189,13 +189,22 @@ class LoginHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('login.html')
         self.response.write(template.render())
+class SettingsHandler(webapp2.RequestHandler):
+    def get(self):
+        if (auth2.isSignedIn.get()) {
+          var profile = auth2.currentUser.get().getBasicProfile();
+          full_name = profile.getName());
+          image_url = profile.getImageUrl());
+          console.log('Email: ' + profile.getEmail());
+        }
+    def post(self):
 
 app = webapp2.WSGIApplication([
-
     ('/addreminder', ReminderHandler),
     ('/home', MainHandler),
     ('/removereminder', RemoveHandler),
     ('/', LoginHandler),
     ('/addphone', AddPhoneHandler),
-    ('/sendtext', SendTextHandler)
+    ('/sendtext', SendTextHandler),
+    ('/settings',SettingsHandler),
 ], debug=True)
