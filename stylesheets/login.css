@@ -80,6 +80,21 @@ h2 {
   text-transform: uppercase;
 
 }
+h3 {
+  font-family: sans-serif;
+  text-align:left;
+  color: black;
+  font-size: 20px;
+  font-weight: 500;
+}
+h4 {
+  font-family: sans-serif;
+  text-align: left;
+  color: black;
+  font-size: 15px;
+  font-weight: 100;
+}
+
 
 #line {
   /*border: 2px solid rgba(220, 125, 0, 0.8);*/
@@ -97,9 +112,8 @@ h2 {
 }
 
 td {
-  font-size: 26px;
   font-family: sans-serif;
-}
+  }
 
 table {
   margin-top: -90px;
