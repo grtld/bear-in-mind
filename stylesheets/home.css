@@ -95,16 +95,10 @@ td {
   font-family: sans-serif;
 }
 
-/*tr {
-  table: -80px;
-}*/
-
 table {
   margin-top: -90px;
   table-layout: auto;
 }
-
-
 
 div#today {
   font-family: sans-serif;
@@ -180,4 +174,12 @@ header.w3-hover-teal:hover {
 
 form#remove {
   color:#fff;
+}
+form {
+  text-align: center;
+  font-family: sans-serif;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  font-weight: 100;
 }
