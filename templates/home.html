@@ -3,7 +3,7 @@
 
   <head>
     <title>Your To-Do List</title>
-    <link rel="stylesheet" type="text/css" href="stylesheets/home_1.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/home.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/ghostbutton.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/navigationBar.css">
 
@@ -13,7 +13,10 @@
   </head>
 
 
-<div class="background">
+<!-- BACKGROUND WORKS -->
+
+  <video muted autoplay loop poster="stylesheets/tree16.jpg" id="bgvid">
+  </video>
 
 
 <body>
@@ -31,11 +34,46 @@
 
 
 
+
     <!-- MAIN DISPLAY  -->
 
 <section>
+<br><br><br>
 
-<h1 style="text-align:left">Hi {{user.email}}</h1>
+
+<!-- <button onclick="document.getElementById('id01').style.display='block'"
+class="w3-btn">Add a Reminder</button>
+
+<div id="id01" class="w3-modal">
+  <div class="w3-modal-content">
+    <header class="w3-container w3-teal">
+      <span onclick="document.getElementById('id01').style.display='none'"
+      class="w3-closebtn">&times;</span>
+      <h2>Add a Reminder</h2>
+    </header>
+    <div class="w3-container">
+          <form method="post" action ="">
+            <h3>Title: <input type="text" name="title"/></h3>
+            <h3>Description: <input type="text" name="description"/></h3>
+            <h3>Frequency: Every <input type="number" name="frequency" placeholder="# "/> days starting from
+            <input type="number" name="month" placeholder="mm"/>//
+            <input type="number" name="day" placeholder="dd"/>//
+            <input type="number" name="year" placeholder="yyyy"/></h3>
+          </form>
+    </div>
+    <footer class="w3-container w3-teal">
+      <form>
+      <button>Add reminder</button>
+    </form>
+    </footer>
+  </div>
+</div>
+      </div>
+    </div>
+  </div> -->
+
+
+<h1>Hey {{user.email}}!</h1>
 
 <!-- USER PHONE NUMBER -->
     <div>
@@ -61,24 +99,24 @@
 <!-- USER'S TODAY EVENTS -->
 
 <h2>Today's Events</h2>
-<div id="line2"></div>
+<div id="line"></div>
 <br>
 <br>
 
 <table align="center" border="0" cellspacing="40" cellpadding="20">
 
-    {% for todays_reminder in todays_reminders %}
       <div id="today">
 
-            <tr>
-              <td align="left">
-                <p><b>{{todays_reminder.title}}</b><br>
-                  {{todays_reminder.description}}</p>
-              </td>
-    {% endfor %}
-  </tr>
+          <tr>
+            {% for todays_reminder in todays_reminders %}
 
-</div>
+            <td align="left">
+              <p><b>{{todays_reminder.title}}</b><br>
+                {{todays_reminder.description}}</p>
+            </td>
+            {% endfor %}
+          </tr>
+      </div>
 </table>
 
 
@@ -90,27 +128,31 @@
 
 <section id="bottom">
 
-<h2>Upcoming Events</h2>
+<h2 id="bottom">Upcoming Events</h2>
 <div id="line2"></div>
 
-    {% for upcoming_reminder in upcoming_reminders %}
-      <div id="upcoming">
-          <table align="center" border="0" cellspacing="40" cellpadding="20">
+<br>
+      <table align="center" border="0" cellspacing="40" cellpadding="20">
+        <div id="upcoming">
 
             <tr>
+              {% for upcoming_reminder in upcoming_reminders %}
+
               <td align="left">
                 <p id="bottom"><b>{{upcoming_reminder.title}}</b><br>
                   {{upcoming_reminder.description}}</p>
               </td>
+              {% endfor %}
+
             </tr>
-          </table>
-      </div>
-    {% endfor %}
+        </div>
+      </table>
+
 
 
     <img autoplay loop poster="background.jpg" id="bgvid">
 
-<br>
+</section>
 
 <!-- BOTTOM BUTTONS -->
 
@@ -126,8 +168,7 @@
         <br>
     </div> -->
 
-</section>
 </body>
 
-</div>
+<!-- </div> -->
 </html>
