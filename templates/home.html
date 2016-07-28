@@ -100,11 +100,8 @@ class="w3-btn">Add a Reminder</button>
 
 <h2>Today's Events</h2>
 <div id="line"></div>
-<br>
-<br>
-<br><br>
+<br><br><br><br>
 <table align="center">
-
       <div id="today">
             {% for todays_reminder in todays_reminders %}
             <tr>
@@ -131,7 +128,7 @@ class="w3-btn">Add a Reminder</button>
 <div id="line2"></div>
 
 <br>
-      <table align="center" border="0" cellspacing="40" cellpadding="20">
+      <table align="center">
         <div id="upcoming">
 
             <tr>
@@ -141,7 +138,7 @@ class="w3-btn">Add a Reminder</button>
                 <p id="bottom"><b>{{upcoming_reminder.title}}</b><br>
                   {{upcoming_reminder.description}}</p>
               </td>
-              <tr>
+            </tr>
                 {% endfor %}
 
         </div>
