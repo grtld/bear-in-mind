@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Phone Settings</title>
+  </head>
+  <body>
+    {% if user.phone == "" %}
+    If you would like to receive your reminders as a text message, please enter your phone number.
+    <br>
+      <form action="/addphone" method="get">
+        <input type="hidden" name="key" value="{{urlsafe_key}}">
+        <input type=text name="phone" placeholder="##########">
+        <input type="submit" value="Submit">
+      </form>
+    {% else %}
+      <form action="/sendtext" method="get">
+        <br>Your reminders will be sent to {{user.phone}}.
+        <input type="hidden" name="key" value="{{urlsafe_key}}">
+        <br><br>Not your phone number?
+        <br>
+      </form>
+      <form action="/addphone" method="get">
+        <input type="hidden" name="key" value="{{urlsafe_key}}">
+        <input type=text name="phone" placeholder="##########">
+        <input type="submit" value="Change number">
+      </form>
+    {% endif %}
+  </body>
+</html>

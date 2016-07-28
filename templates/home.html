@@ -33,7 +33,12 @@
 <br><br><br>
 
 <h1>Hi {{user.email}}</h1>
+<<<<<<< HEAD
 
+<<<<<<< HEAD
+=======
+<!-- USER PHONE NUMBER -->
+>>>>>>> a8868329f82c95c4d21ae9e86688aa1d3e8d68da
   <br>
   <!-- TOP BUTTONS -->
   <div class="buttonHolder">
@@ -44,7 +49,10 @@
     <div id="right">
         <a class="home_ghost-button" href="/removereminder{{user.url()}}">Remove A Reminder</a>
     </div>
+    <div id="right">
+        <a class="home_ghost-button" href="/addphone{{user.url()}}">SMS Settings</a>
   </div>
+<<<<<<< HEAD
 
 
     <!-- USER PHONE NUMBER -->
@@ -66,30 +74,35 @@
         </form>
       {% endif %}
     </div>
+=======
+>>>>>>> a8868329f82c95c4d21ae9e86688aa1d3e8d68da
 
-    <br>
 
-    <!-- USER'S TODAY EVENTS -->
-    <h2>Today's Events</h2>
-    <div id="line"></div>
-    <br><br><br><br>
-
-    <table align="center">
-      <div id="today">
-
-            {% for todays_reminder in todays_reminders %}
-            <tr>
-            <td align="left">
-              <p><img src="stylesheets/media/paw.gif" align="left" width="50"> <b> {{todays_reminder.title}}</b><br>
-                {{todays_reminder.description}}</p>
-            </td>
-          </tr>
-            {% endfor %}
-
+<<<<<<< HEAD
       </div>
     </table>
     <br>
 
+=======
+  <!-- USER'S TODAY EVENTS -->
+  <h2>Today's Events</h2>
+  <div id="line"></div>
+  <br><br><br><br>
+
+  <table align="center">
+    <div id="today">
+
+          {% for todays_reminder in todays_reminders %}
+          <tr>
+          <td align="left">
+            <p><img src="stylesheets/media/paw.gif" align="left" width="50"> <b> {{todays_reminder.title}}</b><br>
+              {{todays_reminder.description}}</p>
+          </td>
+        </tr>
+          {% endfor %}
+  </table>
+  <br><br><br><input type="submit" value="Send today's reminders">
+>>>>>>> a8868329f82c95c4d21ae9e86688aa1d3e8d68da
   </section>
 
   <!-- USER'S UPCOMING EVENTS -->
