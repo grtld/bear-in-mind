@@ -26,13 +26,19 @@
 
 
 <form method="post" action ="">
-  <h3>Title: <input type="text" name="title"/></h3>
-  <h3>Description: <input type="text" name="description"/></h3>
-  <h3>Frequency: Every <input type="number" name="frequency" placeholder="# "/> days starting from
-  <input type="number" name="month" placeholder="mm"/>//
-  <input type="number" name="day" placeholder="dd"/>//
-  <input type="number" name="year" placeholder="yyyy"/></h3>
-  <button>Add reminder</button>
+  <h3>Title:
+  <br><input type="text" name="title" placeholder="title"/></h3>
+  <h3>Description:
+  <br><input type="text" name="description" placeholder="description (optional)"/></h3>
+  <h3>Frequency: Every <input type="number" name="frequency" placeholder="# "/> days
+  <br>starting from
+  <br>month:
+  <input type="number" name="month" placeholder="mm" min="1" max="12"/>
+  <br>day:
+  <input type="number" name="day" placeholder="dd" min="1" max="31"/>
+  <br>year:
+  <input type="number" name="year" placeholder="yyyy" min="1900" max="3500"/></h3>
+  <input type="submit" value="Add Reminder">
 </form>
 
 
