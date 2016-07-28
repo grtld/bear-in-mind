@@ -67,7 +67,11 @@
         </tr>
           {% endfor %}
   </table>
-  <br><br><br><input type="submit" value="Send today's reminders">
+  <br><br><br>
+  <form method="get" action="/sendtext">
+  <input type="hidden" name="key" value="{{urlsafe_key}}">
+  <input type="submit" value="Send today's reminders">
+</form>
   </section>
 
   <!-- USER'S UPCOMING EVENTS -->
