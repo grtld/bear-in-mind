@@ -27,6 +27,10 @@
 
     <h1>Your Reminders</h1>
     <div id="line3"></div>
+
+
+    <h2 style="text-align:center;">Your Reminders</h2>
+    <div id="line3"></div>
     <!-- <div id="event"> -->
     <form method="post">
       {% for reminder in reminders %}
@@ -34,7 +38,7 @@
       <br>{{reminder.description}}</input>
     <br>
     {% endfor %}
-    <br><button>Delete Reminders</button>
+    <br><input type="submit" value="Remove reminders">
     </form>
   <!-- </div> -->
   </body>

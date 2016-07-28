@@ -142,15 +142,7 @@ class ReminderHandler(webapp2.RequestHandler):
         title = self.request.get('title')
         description = self.request.get('description')
         frequency = self.request.get('frequency')
-
-        #if type('month')== int:
         month = int(self.request.get('month'))
-        #    if not (month <= 12 and month >= 0):
-
-        #else:
-            # raise alert('Month should be an integer')
-
-
         day = int(self.request.get('day'))
         year = int(self.request.get('year'))
         urlsafe_key = self.request.get('key')
@@ -191,11 +183,10 @@ class LoginHandler(webapp2.RequestHandler):
         self.response.write(template.render())
 
 app = webapp2.WSGIApplication([
-
     ('/addreminder', ReminderHandler),
     ('/home', MainHandler),
     ('/removereminder', RemoveHandler),
     ('/', LoginHandler),
     ('/addphone', AddPhoneHandler),
-    ('/sendtext', SendTextHandler)
+    ('/sendtext', SendTextHandler),
 ], debug=True)
