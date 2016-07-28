@@ -34,16 +34,14 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
         logout_url = users.create_logout_url('/')
-        user = str(user)
-        if User.query(User.email == user).get() == None:
-            new_user = User(email=user, phone="")
+        if User.query(User.email == str(user)).get() == None:
+            new_user = User(email=str(user), phone="")
             new_user.put()
-
+            self.redirect('/home?key=' + new_user.key.urlsafe())
         #show a list of the reminders
-        user = User.query(User.email == user).get()
+        user = User.query(User.email == str(user)).get()
         urlsafe_key = user.key.urlsafe()
         key = ndb.Key(urlsafe=urlsafe_key)
-
         #get list of reminders from specific user
         reminders = Reminder.query(Reminder.user_key == key).fetch()
 
@@ -71,21 +69,40 @@ class MainHandler(webapp2.RequestHandler):
                 upcoming_reminders.append(reminder)
 
         #render response
-        template_values= {'todays_reminders':todays_reminders, 'upcoming_reminders':upcoming_reminders, 'user':user, 'logout_url':logout_url}
+        template_values= {'urlsafe_key':urlsafe_key, 'todays_reminders':todays_reminders, 'upcoming_reminders':upcoming_reminders, 'user':user, 'logout_url':logout_url}
         template = jinja_environment.get_template('home.html')
         self.response.write(template.render(template_values))
-        '''
-    def addphone(self):
-        user = users.get_current_user()
-        user_key = user.get()
-        phone = self.request.get('phone')
-        user_key.phone = phone
-        user_key.put()
-        self.response.write(template.render(user.email))
 
-    def send(self):
-        self.response.write('world')
+class AddPhoneHandler(webapp2.RequestHandler):
+    def get(self):
+        logging.info('inside AddPhoneHandler')
+        urlsafe_key = self.request.get('key')
+        phone = self.request.get('phone')
+        user_key = ndb.Key(urlsafe=urlsafe_key)
+        user = user_key.get()
+        logging.info('phone #:' + phone)
+        user.phone = phone
+        user.put()
+        self.redirect('/home?key=' + urlsafe_key)
+
+class SendTextHandler(webapp2.RequestHandler):
+    def get(self):
+        from twilio.rest import TwilioRestClient
+        urlsafe_key = self.request.get('key')
+        user_key = ndb.Key(urlsafe=urlsafe_key)
+        user = user_key.get()
+        logging.info('phone#: ' )
         '''
+        account_sid = "AC0956d071691cb608aabfa3a73b2592d6" # Your Account SID from www.twilio.com/console
+        auth_token  = "6756531644d0e1845a63c235473b83dc"  # Your Auth Token from www.twilio.com/console
+
+        client = TwilioRestClient(account_sid, auth_token)
+        message = client.messages.create(body="Daily Reminder: ",
+            to="+1{user.phone}",    # Replace with your phone number
+            from_="+15104582359") # Replace with your Twilio number
+        print(message.sid)
+        '''
+
 class ReminderHandler(webapp2.RequestHandler):
     def get(self):
         #get user key
@@ -139,26 +156,12 @@ class LoginHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('login.html')
         self.response.write(template.render())
 
-        """from twilio.rest import TwilioRestClient
-
-        account_sid = "AC0956d071691cb608aabfa3a73b2592d6" # Your Account SID from www.twilio.com/console
-        auth_token  = "6756531644d0e1845a63c235473b83dc"  # Your Auth Token from www.twilio.com/console
-
-        client = TwilioRestClient(account_sid, auth_token)
-
-        message = client.messages.create(body="Daily Reminder: {{user.reminder}}",
-            to="+1{user.phone}",    # Replace with your phone number
-            from_="+15104582359") # Replace with your Twilio number
-
-        print(message.sid)"""
-
-#    def post(self):
-#        self.redirect('/')
-
 app = webapp2.WSGIApplication([
 
     ('/addreminder', ReminderHandler),
     ('/home', MainHandler),
     ('/removereminder', RemoveHandler),
-    ('/', LoginHandler)
+    ('/', LoginHandler),
+    ('/addphone', AddPhoneHandler),
+    ('/sendtext', SendTextHandler)
 ], debug=True)
