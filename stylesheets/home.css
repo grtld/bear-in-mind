@@ -34,9 +34,9 @@ video#bgvid {
   -moz-transform: translateX(-50%) translateY(-50%);
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
-  background: url(tree16.jpg) no-repeat;
+  background: url(babybear.png) no-repeat;
   background-size: cover;
-  /*opacity: .8;*/
+  opacity: .8;
 }
 
 body {
@@ -87,7 +87,8 @@ section#bottom {
 }
 
 section:nth-of-type(even) {
-	background: #fff;
+	/*background: grey;*/
+  opacity: 0.9;
 }
 
 td {
