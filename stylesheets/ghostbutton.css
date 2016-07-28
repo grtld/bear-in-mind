@@ -52,7 +52,7 @@
               border-color 0.2s ease-out;
 }
 
-#left {
+#middle {
   position: absolute;
   left: 70%;
   top: 112px;
@@ -62,6 +62,13 @@
 #right {
   position: absolute;
   left: 83%;
+  top: 112px;
+  z-index: 0;
+}
+
+#left {
+  position: absolute;
+  left: 57%;
   top: 112px;
   z-index: 0;
 }

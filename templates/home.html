@@ -29,10 +29,7 @@
 
 <h1>Hi {{user.email}}</h1>
 
-<<<<<<< HEAD
-=======
 <!-- USER PHONE NUMBER -->
->>>>>>> a8868329f82c95c4d21ae9e86688aa1d3e8d68da
   <br>
   <!-- TOP BUTTONS -->
   <div class="buttonHolder">
@@ -40,44 +37,13 @@
         <a class="home_ghost-button" href="/addreminder{{user.url()}}">Add a Reminder</a>
     </div>
     <br>
-    <div id="right">
+    <div id="middle">
         <a class="home_ghost-button" href="/removereminder{{user.url()}}">Remove A Reminder</a>
     </div>
     <div id="right">
         <a class="home_ghost-button" href="/addphone{{user.url()}}&phone={{user.phone}}">SMS Settings</a>
   </div>
-<<<<<<< HEAD
 
-
-    <!-- USER PHONE NUMBER -->
-    <div>
-      {% if user.phone == "" %}
-      If you would like to receive your reminders as a text message, please enter your phone number.
-      <br>
-        <form action="/addphone" method="get">
-          <input type="hidden" name="key" value="{{urlsafe_key}}">
-          <input type=text name="phone" placeholder="##########">
-          <input type="submit" value="Submit">
-        </form>
-      {% else %}
-        <form action="/sendtext" method="get">
-          <br>Your reminders will be sent to {{user.phone}}.
-          <input type="hidden" name="key" value="{{urlsafe_key}}">
-          <br><input type="submit" value="Send today's reminders">
-          <br><a href="/">Not your phone number? Click here to change</a>
-        </form>
-      {% endif %}
-    </div>
-=======
->>>>>>> a8868329f82c95c4d21ae9e86688aa1d3e8d68da
-
-
-<<<<<<< HEAD
-      </div>
-    </table>
-    <br>
-
-=======
   <!-- USER'S TODAY EVENTS -->
   <h2>Today's Events</h2>
   <div id="line"></div>
@@ -95,8 +61,7 @@
         </tr>
           {% endfor %}
   </table>
-  <br><br><br><input type="submit" value="Send today's reminders">
->>>>>>> a8868329f82c95c4d21ae9e86688aa1d3e8d68da
+  <br><br><br><input class="home_ghost-button" type="submit" value="Send today's reminders">
   </section>
 
   <!-- USER'S UPCOMING EVENTS -->
