@@ -14,12 +14,10 @@
         <input type="submit" value="Submit">
       </form>
     {% else %}
-      <form action="/sendtext" method="get">
         <br>Your reminders will be sent to {{user.phone}}.
         <input type="hidden" name="key" value="{{urlsafe_key}}">
         <br><br>Not your phone number?
         <br>
-      </form>
       <form action="/addphone" method="get">
         <input type="hidden" name="key" value="{{urlsafe_key}}">
         <input type=text name="phone" placeholder="##########">
