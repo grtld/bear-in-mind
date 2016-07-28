@@ -20,7 +20,7 @@
 
 
 
-<h1>Hi {{user.email}}!</h1>
+<h1 style="text-align:left">Hi {{user.email}}</h1>
 <div>
   {% if user.phone == "" %}
   If you would like to receive your reminders as a text message, please enter your phone number.
@@ -37,28 +37,28 @@
   {% endif %}
 </div>
 
-<h2>Here is your to-do list.</h2>
-<div id="line"></div>
 <br>
 
-<h3>Today's Events</h3>
-
-
+<h2>Today's Events</h2>
+<div id="line"></div>
+<br>
+<br>
 
 {% for todays_reminder in todays_reminders %}
 <div id="today">
-  <b>Event:</b> {{todays_reminder.title}}
+  <h4>Event:</h4> {{todays_reminder.title}}
 <br>
-  <b>Description:</b> {{todays_reminder.description}}
+  <h4>Description:</h4> {{todays_reminder.description}}
 </div>
 {% endfor %}
 
-<h3>Upcoming Events</h3>
+<h2>Upcoming Events</h2>
+<div id="line"></div>
 {% for upcoming_reminder in upcoming_reminders %}
 <div id="upcoming">
-  <b>Event:</b> {{upcoming_reminder.title}}
+  <h4>Event:</h4> {{upcoming_reminder.title}}
 <br>
-  <b>Description:</b> {{upcoming_reminder.description}}
+  <h4>Description:</h4> {{upcoming_reminder.description}}
 </div>
 {% endfor %}
     <img autoplay loop poster="background.jpg" id="bgvid">
@@ -66,7 +66,7 @@
 <br>
 
   <div class="buttonHolder">
-        <a class="ghost-button" href="/addreminder{{user.url()}}">Add a Reminder</a>
+        <a id="myBtn" class="ghost-button" href="/addreminder{{user.url()}}">Add a Reminder</a>
         <br>
         <br>
         <a class="ghost-button" href="/removereminder{{user.url()}}">Remove A Reminder</a>
@@ -74,7 +74,7 @@
         <br>
         <a class="ghost-button" href="{{logout_url}}">Log Out</a>
         <br>
-      </div>
+    </div>
 </body>
 
 </div>

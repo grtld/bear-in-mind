@@ -1,8 +1,8 @@
 #bar {
-  background-color: yellow;
+  background-color: #000;
   height: 55px;
   width: auto;
-  opacity: 0.5;
+  /*opacity: 0.5;*/
 }
 
 #bear {
@@ -35,8 +35,8 @@
   transform: translateX(-50%) translateY(-50%);
   /*background: url(post-its.jpg) no-repeat; */
   background-size: cover;
-  opacity: .8;
-  background-color: rgba(200, 100, 0, 0.5);
+  /*opacity: .8;*/
+  background-image: url("tree16.jpg");
 }
 
 
@@ -44,11 +44,15 @@ h1 {
   font-family: sans-serif;
   text-align: center;
   font-size: 45px;
+  color: #fff;
+  font-weight: 100;
 }
 
 h2 {
   font-family: sans-serif;
   text-align: center;
+  color: #fff;
+  font-weight: 100;
 }
 
 #line {
@@ -67,12 +71,25 @@ h2 {
 h3 {
   font-family: sans-serif;
   text-align: center;
+  color: #fff;
+  font-weight: 100;
+}
+h4{
+  font-family: sans-serif;
+  color: #fff;
+  font-weight: 100;
 }
 
 #today {
+  font-family: sans-serif;
   text-align: center;
+  color: #fff;
+  font-weight: 100;
 }
 
 #upcoming {
+  font-family: sans-serif;
   text-align: center;
+  color: #fff;
+  font-weight: 100;
 }
