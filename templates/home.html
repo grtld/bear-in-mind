@@ -73,7 +73,7 @@ class="w3-btn">Add a Reminder</button>
   </div> -->
 
 
-<h1>Hi {{user.email}}</h1>
+<h1>Hey {{user.email}}!</h1>
 
 <!-- USER PHONE NUMBER -->
     <div>
@@ -144,9 +144,9 @@ class="w3-btn">Add a Reminder</button>
                 <p id="bottom"><b>{{upcoming_reminder.title}}</b><br>
                   {{upcoming_reminder.description}}</p>
               </td>
-              {% endfor %}
+              <tr>
+                {% endfor %}
 
-            </tr>
         </div>
       </table>
 
