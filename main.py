@@ -78,14 +78,15 @@ class MainHandler(webapp2.RequestHandler):
 
 class AddPhoneHandler(webapp2.RequestHandler):
     def get(self):
-        logging.info('inside AddPhoneHandler')
         urlsafe_key = self.request.get('key')
         phone = self.request.get('phone')
         user_key = ndb.Key(urlsafe=urlsafe_key)
         user = user_key.get()
         user.phone = phone
         user.put()
-        self.redirect('/home?key=' + urlsafe_key)
+        template_values = {'user':user, 'phone':phone, 'urlsafe_key':urlsafe_key}
+        template = jinja_environment.get_template('addphone.html')
+        self.response.write(template.render(template_values))
 
 class SendTextHandler(webapp2.RequestHandler):
     def get(self):
