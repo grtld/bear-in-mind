@@ -19,23 +19,20 @@
   <!-- <video
   muted autoplay loop poster="stylesheets/tree16.jpg" id="bgvid">
   </video> -->
-
-
-
   <!-- NAVIGATION BAR -->
     <ul>
       <li style="float:left" id="name"><a href="/home">Bear in Mind</a></li>
       <li style="float:right"><a class="active" href="{{logout_url}}">Log Out</a></li>
     </ul>
 
-<!-- MAIN DISPLAY  -->
-<section>
-<br><br><br>
+  <!-- MAIN DISPLAY  -->
+  <section>
+  <br><br><br>
 
-<h1>Hi {{user.email}}</h1>
+  <h1>Hi {{user.email}}</h1>
 
-<!-- USER PHONE NUMBER -->
-  <br>
+  <!-- USER PHONE NUMBER -->
+    <br>
   <!-- TOP BUTTONS -->
   <div class="buttonHolder">
     <div id="left">
@@ -45,8 +42,9 @@
     <div id="right">
         <a class="home_ghost-button" href="/removereminder{{user.url()}}">Remove A Reminder</a>
     </div>
+    <br>
     <div id="right">
-        <a class="home_ghost-button" href="/addphone{{user.url()}}&phone={{user.phone}}">SMS Settings</a>
+        <a class="home_ghost-button" href="/addphone{{user.url()}}&phone={{user.phone}}">Phone Settings</a>
   </div>
 
 
@@ -67,7 +65,10 @@
         </tr>
           {% endfor %}
   </table>
-  <br><br><br><input type="submit" value="Send today's reminders">
+  <br>
+  <br>
+  <br>
+  <input class="ghost-button" type="submit" value="Send today's reminders">
   </section>
 
   <!-- USER'S UPCOMING EVENTS -->

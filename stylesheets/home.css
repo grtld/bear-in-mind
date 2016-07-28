@@ -29,14 +29,15 @@ video#bgvid {
   min-height: 100%;
   width: auto;
   height: auto;
-  z-index: -100;
+  /*z-index: -100;*/
+  z-index: -2;
   -ms-transform: translateX(-50%) translateY(-50%);
   -moz-transform: translateX(-50%) translateY(-50%);
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
   background: url(babybear.png) no-repeat;
   background-size: cover;
-  opacity: .8;
+  /*opacity: .8;*/
 }
 
 video#add {

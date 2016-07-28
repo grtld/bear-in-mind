@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
     <title>Phone Settings</title>
+    <title>Your To-Do List</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/home.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/ghostbutton.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/navigationBar.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   </head>
+
+  <!-- BACKGROUND WORKS -->
+  <video muted autoplay loop poster="stylesheets/media/babybear.png" id="bgvid">
+  <source src="stylesheets/media/babybear.webm" type="video/webm">
+  <source src="stylesheets/media/babybear.mp4" type="video/mp4">
+  </video>
+
+  <!-- NAVIGATION BAR -->
+    <ul>
+      <li style="float:left" id="name"><a href="/home">Bear in Mind</a></li>
+      <li style="float:right"><a class="active" href="{{logout_url}}">Log Out</a></li>
+    </ul>
+
+<!-- MAIN DISPLAY  -->
+<section>
+<br><br><br>
   <body>
+    <h2 style="text-align:center;">Phone Settings</h2>
+    <div id="line"></div>
+    <br>
     {% if user.phone == "" %}
-    If you would like to receive your reminders as a text message, please enter your phone number.
+    <h3>If you would like to receive your reminders as a text message, please enter your phone number.<h3>
     <br>
       <form action="/addphone" method="get">
         <input type="hidden" name="key" value="{{urlsafe_key}}">
@@ -14,14 +38,17 @@
         <input type="submit" value="Submit">
       </form>
     {% else %}
-        <br>Your reminders will be sent to {{user.phone}}.
-        <input type="hidden" name="key" value="{{urlsafe_key}}">
-        <br><br>Not your phone number?
         <br>
-      <form action="/addphone" method="get">
+        <h3>Your reminders will be sent to {{user.phone}}. </h3>
+        <input type="hidden" name="key" value="{{urlsafe_key}}">
+        <br><br>
+        <h3>Not your phone number?</h3>
+        <form action="/addphone" method="get">
         <input type="hidden" name="key" value="{{urlsafe_key}}">
         <input type=text name="phone" placeholder="##########">
-        <input type="submit" value="Change number">
+        <br>
+        <br>
+        <input class= "ghost-button" type="submit" value="Change number">
       </form>
     {% endif %}
   </body>
