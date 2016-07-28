@@ -103,23 +103,19 @@ class="w3-btn">Add a Reminder</button>
 <br>
 <br>
 
-<table align="center" border="0" cellspacing="40" cellpadding="20">
-
+{% for todays_reminder in todays_reminders %}
+<table align="center" border="0" cellspacing="40" cellpadding="0">
       <div id="today">
-
           <tr>
-            {% for todays_reminder in todays_reminders %}
-
             <td align="left">
               <p><b>{{todays_reminder.title}}</b><br>
                 {{todays_reminder.description}}</p>
             </td>
           </tr>
           <tr>
-            {% endfor %}
-
       </div>
 </table>
+{% endfor %}
 
 
 </section>
@@ -133,22 +129,21 @@ class="w3-btn">Add a Reminder</button>
 <h2 id="bottom">Upcoming Events</h2>
 <div id="line2"></div>
 
-<br>
-      <table align="center" border="0" cellspacing="40" cellpadding="20">
+
+{% for upcoming_reminder in upcoming_reminders %}
+      <table align="center" border="0" cellspacing="40" cellpadding="0">
         <div id="upcoming">
 
             <tr>
-              {% for upcoming_reminder in upcoming_reminders %}
-
               <td align="left">
                 <p id="bottom"><b>{{upcoming_reminder.title}}</b><br>
                   {{upcoming_reminder.description}}</p>
               </td>
               <tr>
-                {% endfor %}
-
         </div>
       </table>
+{% endfor %}
+
 
 
 
