@@ -87,7 +87,8 @@ section#bottom {
 }
 
 section:nth-of-type(even) {
-	background: #fff;
+	/*background: grey;*/
+  opacity: 0.9;
 }
 
 td {
@@ -175,4 +176,22 @@ header.w3-hover-teal:hover {
       content: "";
       display: table;
       clear: both;
+  }
+
+  video#bgvid {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -100;
+      -ms-transform: translateX(-50%) translateY(-50%);
+      -moz-transform: translateX(-50%) translateY(-50%);
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+      background: url(bear.png) no-repeat;
+      background-size: cover;
+      opacity: 0.7;
   }
