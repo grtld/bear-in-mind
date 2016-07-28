@@ -26,10 +26,6 @@
     <ul>
       <li style="float:left" id="name"><a href="/home">Bear in Mind</a></li>
       <li style="float:right"><a class="active" href="{{logout_url}}">Log Out</a></li>
-
-      <li style="float:right"><a class="active" href="/removereminder{{user.url()}}">Remove a Reminder</a></li>
-      <li style="float:right"><a class="active" href="/addreminder{{user.url()}}">Add a Reminder</a></li>
-
     </ul>
 
 
@@ -75,7 +71,21 @@ class="w3-btn">Add a Reminder</button>
 
 <h1>Hey {{user.email}}!</h1>
 
+<!-- TOP BUTTONS -->
+
+
+  <div class="buttonHolder">
+    <div id="left">
+        <a class="home_ghost-button" href="/addreminder{{user.url()}}">Add a Reminder</a>
+    </div>
+    <div id="right">
+        <a class="home_ghost-button" href="/removereminder{{user.url()}}">Remove A Reminder</a>
+    </div>
+  </div>
+
+
 <!-- USER PHONE NUMBER -->
+
     <div>
       {% if user.phone == "" %}
       If you would like to receive your reminders as a text message, please enter your phone number.
@@ -101,8 +111,10 @@ class="w3-btn">Add a Reminder</button>
 <h2>Today's Events</h2>
 <div id="line"></div>
 <br><br><br><br>
+
 <table align="center">
       <div id="today">
+
             {% for todays_reminder in todays_reminders %}
             <tr>
             <td align="left">
@@ -146,23 +158,10 @@ class="w3-btn">Add a Reminder</button>
 
 
 
+
     <img autoplay loop poster="background.jpg" id="bgvid">
 
 </section>
-
-<!-- BOTTOM BUTTONS -->
-
-
-  <!-- <div class="buttonHolder">
-        <a class="ghost-button" href="/addreminder{{user.url()}}">Add a Reminder</a>
-        <br>
-        <br>
-        <a class="ghost-button" href="/removereminder{{user.url()}}">Remove A Reminder</a>
-        <br>
-        <br>
-        <a class="ghost-button" href="{{logout_url}}">Log Out</a>
-        <br>
-    </div> -->
 
 </body>
 
