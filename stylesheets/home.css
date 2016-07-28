@@ -176,3 +176,7 @@ header.w3-hover-teal:hover {
       display: table;
       clear: both;
   }
+
+form#remove {
+  color:#fff;
+}
