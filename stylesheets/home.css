@@ -123,6 +123,8 @@ div#line {
   border-right-style: none;
   border-left-style: none;
   border-bottom-style: none;
+  z-index: -1;
+
 }
 
 div#line2 {
@@ -131,12 +133,26 @@ div#line2 {
   width: 100%;
   margin-top: -17px;
   margin-left: -29px;
-
   position: absolute;
   border-top-style: solid;
   border-right-style: none;
   border-left-style: none;
   border-bottom-style: none;
+  z-index: -1;
+}
+
+div#line3 {
+  border: 2px solid rgba(0, 0, 0, 0.8);
+  height: 50px;
+  width: 100%;
+  margin-top: -17px;
+  margin-left: -29px;
+  position: absolute;
+  border-top-style: solid;
+  border-right-style: none;
+  border-left-style: none;
+  border-bottom-style: none;
+  z-index: -1;
 }
 
 html, body {
