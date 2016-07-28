@@ -76,6 +76,7 @@ class="w3-btn">Add a Reminder</button>
 <h1>Hey {{user.email}}!</h1>
 
 <!-- USER PHONE NUMBER -->
+
     <div>
       {% if user.phone == "" %}
       If you would like to receive your reminders as a text message, please enter your phone number.
@@ -100,23 +101,23 @@ class="w3-btn">Add a Reminder</button>
 
 <h2>Today's Events</h2>
 <div id="line"></div>
-<br>
-<br>
+<br><br><br><br>
 
-{% for todays_reminder in todays_reminders %}
-<table align="center" border="0" cellspacing="40" cellpadding="0">
+<table align="center">
       <div id="today">
-          <tr>
+
+            {% for todays_reminder in todays_reminders %}
+            <tr>
             <td align="left">
               <p><b>{{todays_reminder.title}}</b><br>
                 {{todays_reminder.description}}</p>
             </td>
           </tr>
-          <tr>
+            {% endfor %}
+
       </div>
 </table>
-{% endfor %}
-
+<br>
 
 </section>
 
