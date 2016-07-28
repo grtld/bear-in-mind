@@ -28,26 +28,44 @@
       <li style="float:right"><a class="active" href="{{logout_url}}">Log Out</a></li>
     </ul>
 
-
-
-    <!-- MAIN DISPLAY  -->
-
+<!-- MAIN DISPLAY  -->
 <section>
 <br><br><br>
 
-<h1>Hey {{user.email}}!</h1>
+<h1>Hi {{user.email}}</h1>
 
-<!-- TOP BUTTONS -->
+<!-- USER PHONE NUMBER -->
+<div>
+  {% if user.phone == "" %}
+  If you would like to receive your reminders as a text message, please enter your phone number.
+  <br>
+    <form action="/addphone" method="get">
+      <input type="hidden" name="key" value="{{urlsafe_key}}">
+      <input type=text name="phone" placeholder="##########">
+      <input type="submit" value="Submit">
+    </form>
+  {% else %}
+    <form action="/sendtext" method="get">
+      <br>Your reminders will be sent to {{user.phone}}.
+      <input type="hidden" name="key" value="{{urlsafe_key}}">
+      <br><input type="submit" value="Send today's reminders">
+      <br><a href="/">Not your phone number? Click here to change</a>
+    </form>
+  {% endif %}
+</div>
 
-
+  <br>
+  <!-- TOP BUTTONS -->
   <div class="buttonHolder">
     <div id="left">
         <a class="home_ghost-button" href="/addreminder{{user.url()}}">Add a Reminder</a>
     </div>
+    <br>
     <div id="right">
         <a class="home_ghost-button" href="/removereminder{{user.url()}}">Remove A Reminder</a>
     </div>
   </div>
+<<<<<<< HEAD
 
 
     <!-- USER PHONE NUMBER -->
@@ -92,6 +110,26 @@
       </div>
     </table>
     <br>
+=======
+  <!-- USER'S TODAY EVENTS -->
+  <h2>Today's Events</h2>
+  <div id="line"></div>
+  <br><br><br><br>
+
+  <table align="center">
+    <div id="today">
+
+          {% for todays_reminder in todays_reminders %}
+          <tr>
+          <td align="left">
+            <p><img src="stylesheets/media/paw.gif" align="left" width="30"> <b> {{todays_reminder.title}}</b><br>
+              {{todays_reminder.description}}</p>
+          </td>
+        </tr>
+          {% endfor %}
+  </table>
+  <br>
+>>>>>>> c0b2a5d4ec1810c45f9c42fe6aebd64685535aa7
   </section>
 
   <!-- USER'S UPCOMING EVENTS -->
