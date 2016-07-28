@@ -29,7 +29,7 @@ p {
 }
 
 img {
-  position: absolute;
+  position: static;
 }
 
 
@@ -117,7 +117,6 @@ h2 {
   text-align: center;
   text-transform: uppercase;
 
-  padding-top: 2%;
 }
 
 #line {
@@ -125,7 +124,7 @@ h2 {
   height: 50px;
   width: 45%;
   left: 27.2%;
-  top: 1090px;
+  top: 1055px;
   position: absolute;
   border-top-style: solid;
   border-right-style: none;
@@ -148,51 +147,11 @@ table#pictures {
   border-spacing: 80px;
   padding: 1px;
   border-collapse: separate;
-
 }
 
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 0px;
-    background: #000000 url('stylesheets/bear_logo.png') no-repeat top left;
-}
-
-li {
-    float: left;
-    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
-}
-#name  {
-    float: left;
-    font-size: 20px;
-    color: white;
-    margin-top: 13px;
-    margin-left: 10px;
-    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
-    text-transform: uppercase;
-
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-    background-color: #111;
-}
-
-.active {
-    background-color: #4CAF50;
+p#slogan {
+  font-size: 24px;
+  font-family: myFirstFont;
+  margin-top: -95px;
+  margin-bottom: 60px;
 }
