@@ -14,22 +14,33 @@
     <li style="float:right"><a class="active" href="/{{logout_url}}">Log Out</a></li>
   </ul>
 
-  <video muted autoplay loop poster="stylesheets/tree16.jpg" id="bgvid">
+  <video muted autoplay loop poster="stylesheets/media/tree16.jpg" id="bgvid">
   </video>
   <br><br><br>
 
-  <h2 style="text-align:center;">Your Reminders</h2>
+  <h2 style="text-align:center;">Add A Reminder</h2>
   <div id="line"></div>
-  <br><br>
+  <br>
 
   <form method="post" action ="">
     <h3>Title:</h3>
-    <br><input type="text" name="title" placeholder="title"/></h3>
+    <input type="text" name="title" placeholder="title"/></h3>
     <h3>Description:</h3>
-    <br><input type="text" name="description" placeholder="description (optional)"/></h3>
-    <h3>Frequency:</h3>Every <input type="number" name="frequency" placeholder="# "/> days
+    <input type="text" name="description" placeholder="description (optional)"/></h3>
+    <h3>Frequency:</h3>
+    Every <input type="number" name="frequency" placeholder="# "/> days
     <br>starting from
+<<<<<<< HEAD
     <input type="date" name="date"/>
+=======
+    <br>month:
+    <input type="number" name="month" placeholder="mm" min="1" max="12"/>
+    <br>day:
+    <input type="number" name="day" placeholder="dd" min="1" max="31"/>
+    <br>year:
+    <input type="number" name="year" placeholder="yyyy" min="1900" max="3500"/></h3>
+    <br>
+>>>>>>> d56b0d9805ba749ae0030b7145fbf1237c06b120
     <input type="submit" value="Add Reminder">
   </form>
 </body>

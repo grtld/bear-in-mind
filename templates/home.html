@@ -1,53 +1,32 @@
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
-
   <head>
     <title>Your To-Do List</title>
     <link rel="stylesheet" type="text/css" href="stylesheets/home.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/ghostbutton.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/navigationBar.css">
 
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-    <!-- <script src="add.js"></script> -->
-
   </head>
 
 
 <!-- BACKGROUND WORKS -->
 
-<video muted autoplay loop poster="stylesheets/babybear.png" id="bgvid">
-<source src="stylesheets/babybear.webm" type="video/webm">
-<source src="stylesheets/babybear.mp4" type="video/mp4">
+<video muted autoplay loop poster="stylesheets/media/babybear.png" id="bgvid">
+<source src="stylesheets/media/babybear.webm" type="video/webm">
+<source src="stylesheets/media/babybear.mp4" type="video/mp4">
 </video>
   <!-- <video
   muted autoplay loop poster="stylesheets/tree16.jpg" id="bgvid">
   </video> -->
-=======
-<head>
-  <title>Your To-Do List</title>
-  <link rel="stylesheet" type="text/css" href="stylesheets/home.css">
-  <link rel="stylesheet" type="text/css" href="stylesheets/ghostbutton.css">
-  <link rel="stylesheet" type="text/css" href="stylesheets/navigationBar.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-</head>
-<body>
-  <!-- BACKGROUND WORKS -->
-  <video muted autoplay loop poster="stylesheets/tree16.jpg" id="bgvid">
-  </video>
->>>>>>> 1fe21aaf3c893d13ca04e846e6297880a5e2a011
+
 
   <!-- NAVIGATION BAR -->
-<<<<<<< HEAD
-
     <ul>
       <li style="float:left" id="name"><a href="/home">Bear in Mind</a></li>
       <li style="float:right"><a class="active" href="{{logout_url}}">Log Out</a></li>
     </ul>
-
 
 
 
@@ -70,28 +49,6 @@
     </div>
   </div>
 
-
-<!-- USER PHONE NUMBER -->
-=======
-  <ul>
-    <li style="float:left" id="name"><a href="/home">Bear in Mind</a></li>
-    <li style="float:right"><a class="active" href="{{logout_url}}">Log Out</a></li>
-  </ul>
-
-  <!-- MAIN DISPLAY  -->
-  <section>
-    <br><br><br>
-
-    <!-- TOP BUTTONS -->
-    <div class="buttonHolder">
-      <div id="left">
-          <a class="home_ghost-button" href="/addreminder{{user.url()}}">Add a Reminder</a>
-      </div>
-      <div id="right">
-          <a class="home_ghost-button" href="/removereminder{{user.url()}}">Remove A Reminder</a>
-      </div>
-    </div>
->>>>>>> 1fe21aaf3c893d13ca04e846e6297880a5e2a011
 
     <!-- USER PHONE NUMBER -->
     <div>
@@ -121,29 +78,16 @@
 
     <table align="center">
       <div id="today">
-<<<<<<< HEAD
 
             {% for todays_reminder in todays_reminders %}
             <tr>
             <td align="left">
-              <p><img src="stylesheets/paw.gif" align="left" width="30"> <b> {{todays_reminder.title}}</b><br>
+              <p><img src="stylesheets/media/paw.gif" align="left" width="30"> <b> {{todays_reminder.title}}</b><br>
                 {{todays_reminder.description}}</p>
             </td>
           </tr>
             {% endfor %}
 
-=======
-        {% for todays_reminder in todays_reminders %}
-        <tr>
-          <td align="left">
-            <p><img src="stylesheets/paw.gif" align="left" width="40"/>
-              <b>{{todays_reminder.title}}</b>
-              <br>
-              {{todays_reminder.description}}</p>
-          </td>
-        </tr>
-        {% endfor %}
->>>>>>> 1fe21aaf3c893d13ca04e846e6297880a5e2a011
       </div>
     </table>
     <br>
