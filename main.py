@@ -183,11 +183,10 @@ class LoginHandler(webapp2.RequestHandler):
         self.response.write(template.render())
 
 app = webapp2.WSGIApplication([
-
     ('/addreminder', ReminderHandler),
     ('/home', MainHandler),
     ('/removereminder', RemoveHandler),
     ('/', LoginHandler),
     ('/addphone', AddPhoneHandler),
-    ('/sendtext', SendTextHandler)
+    ('/sendtext', SendTextHandler),
 ], debug=True)
