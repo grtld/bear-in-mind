@@ -9,6 +9,7 @@ ul {
     min-width: 100%;
     padding: 0px;
     background: #000000 url('stylesheets/bear_logo.png') no-repeat top left;
+    z-index: 2;
 }
 
 li {

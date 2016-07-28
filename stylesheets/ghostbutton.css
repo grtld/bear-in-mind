@@ -53,15 +53,19 @@
               border-color 0.2s ease-out;
 }
 
-/*#left {
+#left {
   position: absolute;
-  left: 30%;
+  left: 70%;
+  top: 112px;
+  z-index: 0;
 }
 
 #right {
   position: absolute;
-
-}*/
+  left: 83%;
+  top: 112px;
+  z-index: 0;
+}
 
 .home_ghost-button:hover,
 .home_ghost-button:active {
