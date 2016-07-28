@@ -1,55 +1,41 @@
 <!DOCTYPE html>
 <head>
-<title>Add a Reminder</title>
-<link rel="stylesheet" type="text/css" href="stylesheets/home.css">
-<link rel="stylesheet" type="text/css" href="stylesheets/ghostbutton.css">
-<link rel="stylesheet" type="text/css" href="stylesheets/navigationBar.css">
+  <title>Add a Reminder</title>
+  <link rel="stylesheet" type="text/css" href="stylesheets/home.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/ghostbutton.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/navigationBar.css">
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
-  <body>
-<!-- NAVIGATION BAR -->
+<body>
+  <!-- NAVIGATION BAR -->
+  <ul>
+    <li style="float:left" id="name"><a href="/home">Bear in Mind</a></li>
+    <li style="float:right"><a class="active" href="/{{logout_url}}">Log Out</a></li>
+  </ul>
 
-<ul>
-  <li style="float:left" id="name"><a href="/home">Bear in Mind</a></li>
-  <li style="float:right"><a class="active" href="/{{logout_url}}">Log Out</a></li>
-</ul>
+  <video muted autoplay loop poster="stylesheets/tree16.jpg" id="bgvid">
+  </video>
+  <br><br><br>
 
+  <h2 style="text-align:center;">Your Reminders</h2>
+  <div id="line"></div>
+  <br><br>
 
-<video muted autoplay loop poster="stylesheets/forestlake.jpeg" id="bgvid">
-</video>
-
-
-
-<br><br><br><br><br>
-
-
-<form method="post" action ="">
-
-  <h3>Title:</h3>
-  <br><input type="text" name="title" placeholder="title"/></h3>
-  <h3>Description:</h3>
-  <br><input type="text" name="description" placeholder="description (optional)"/></h3>
-  <h3>Frequency: Every </h3><input type="number" name="frequency" placeholder="# "/> days
-  <br>starting from
-  <br>month:
-  <input type="number" name="month" placeholder="mm" min="1" max="12"/>
-  <br>day:
-  <input type="number" name="day" placeholder="dd" min="1" max="31"/>
-  <br>year:
-  <input type="number" name="year" placeholder="yyyy" min="1900" max="3500"/></h3>
-  <input type="submit" value="Add Reminder">
-
-</form>
-  </body>
-
-
-
-<!-- <form>
-      <div class ="alert" style="width:200px;height:100px;background:#f00; border: 1px solid black; margin: 0 auto;">
-        Please insert a number value between 01 and 12 for month.
-        <button>I'll fix it!</button>
-      </div>
-</form> -->
-
+  <form method="post" action ="">
+    <h3>Title:</h3>
+    <br><input type="text" name="title" placeholder="title"/></h3>
+    <h3>Description:</h3>
+    <br><input type="text" name="description" placeholder="description (optional)"/></h3>
+    <h3>Frequency:</h3>Every <input type="number" name="frequency" placeholder="# "/> days
+    <br>starting from
+    <br>month:
+    <input type="number" name="month" placeholder="mm" min="1" max="12"/>
+    <br>day:
+    <input type="number" name="day" placeholder="dd" min="1" max="31"/>
+    <br>year:
+    <input type="number" name="year" placeholder="yyyy" min="1900" max="3500"/></h3>
+    <input type="submit" value="Add Reminder">
+  </form>
+</body>
 </html>
