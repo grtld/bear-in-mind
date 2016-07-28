@@ -67,7 +67,7 @@ h1#bottom {
   text-rendering: optimizeLegibility;
 }
 
-h1#big {
+h1#main {
     color: white;
     margin-bottom: -15px;
   }
@@ -82,7 +82,9 @@ h2 {
 }
 
 #line {
-  border: 2px solid rgba(220, 125, 0, 0.8);
+  /*border: 2px solid rgba(220, 125, 0, 0.8);*/
+  border: 2px solid #4CAF50;
+
   height: 50px;
   width: 45%;
   left: 27.2%;
