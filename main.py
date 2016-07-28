@@ -145,16 +145,17 @@ class ReminderHandler(webapp2.RequestHandler):
         title = self.request.get('title')
         description = self.request.get('description')
         frequency = self.request.get('frequency')
-        month = int(self.request.get('month'))
-        day = int(self.request.get('day'))
-        year = int(self.request.get('year'))
+        date = self.request.get('date')
+        date_info = date.split('-')
+        month = int(date_info[1])
+        day = int(date_info[2])
+        year = int(date_info[0])
         urlsafe_key = self.request.get('key')
         key = ndb.Key(urlsafe=urlsafe_key)
 
         #put the reminders from form into the database
         new_reminder = Reminder(title=title, description=description, frequency=int(frequency), month=month, day=day, year=year, user_key=key)
         new_reminder.put()
-
         #shows the home page after you press submit
         self.redirect("/home?key="+urlsafe_key)
 
