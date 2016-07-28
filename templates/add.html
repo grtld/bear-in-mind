@@ -20,14 +20,15 @@
 
   <h2 style="text-align:center;">Your Reminders</h2>
   <div id="line"></div>
-  <br><br>
+  <br>
 
   <form method="post" action ="">
     <h3>Title:</h3>
-    <br><input type="text" name="title" placeholder="title"/></h3>
+    <input type="text" name="title" placeholder="title"/></h3>
     <h3>Description:</h3>
-    <br><input type="text" name="description" placeholder="description (optional)"/></h3>
-    <h3>Frequency:</h3>Every <input type="number" name="frequency" placeholder="# "/> days
+    <input type="text" name="description" placeholder="description (optional)"/></h3>
+    <h3>Frequency:</h3>
+    Every <input type="number" name="frequency" placeholder="# "/> days
     <br>starting from
     <br>month:
     <input type="number" name="month" placeholder="mm" min="1" max="12"/>
@@ -35,6 +36,7 @@
     <input type="number" name="day" placeholder="dd" min="1" max="31"/>
     <br>year:
     <input type="number" name="year" placeholder="yyyy" min="1900" max="3500"/></h3>
+    <br>
     <input type="submit" value="Add Reminder">
   </form>
 </body>
