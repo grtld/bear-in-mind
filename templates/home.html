@@ -102,25 +102,22 @@ class="w3-btn">Add a Reminder</button>
 <div id="line"></div>
 <br>
 <br>
-
-<table align="center" border="0" cellspacing="40" cellpadding="20">
+<br><br>
+<table align="center">
 
       <div id="today">
-
-          <tr>
             {% for todays_reminder in todays_reminders %}
-
+            <tr>
             <td align="left">
               <p><b>{{todays_reminder.title}}</b><br>
                 {{todays_reminder.description}}</p>
             </td>
           </tr>
-          <tr>
             {% endfor %}
 
       </div>
 </table>
-
+<br>
 
 </section>
 
