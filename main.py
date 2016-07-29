@@ -63,7 +63,7 @@ class MainHandler(webapp2.RequestHandler):
             delta = d0 - d1
             difference = delta.days
             #if today's day date is equal to dataTime for the reminder + frequency, add to the list of today's reminders
-            if difference % reminder.frequency == 0 and difference > 0:
+            if difference % reminder.frequency == 0 and difference >= 0:
                 #make the reminder for today equal to the current reminder from the list
                 today_reminder = reminder
                 #add the reminder to the list of the reminders that are going to be posted for today
@@ -112,7 +112,7 @@ class SendTextHandler(webapp2.RequestHandler):
                 delta = d0 - d1
                 difference = delta.days
                 #if today's day date is equal to dataTime for the reminder + frequency, add to the list of today's reminders
-                if difference % reminder.frequency == 0 and difference > 0:
+                if difference % reminder.frequency == 0 and difference >= 0:
                     #make the reminder for today equal to the current reminder from the list
                     today_reminder = reminder
                     #add the reminder to the list of the reminders that are going to be posted for today
