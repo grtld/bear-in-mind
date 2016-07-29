@@ -1,0 +1,13 @@
+
+section#bottom {
+	box-sizing: border-box;
+	height: 100vh;
+	text-align: center;
+	padding: 2vw;
+	font-size: 6vw;
+}
+
+section:nth-of-type(odd) {
+	background: white;
+  opacity: 1;
+}
