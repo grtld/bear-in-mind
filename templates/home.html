@@ -3,6 +3,7 @@
   <head>
     <title>Your To-Do List</title>
     <link rel="stylesheet" type="text/css" href="stylesheets/home.css">
+    <!-- <link rel="stylesheet" type="text/css" href="stylesheets/homeSections.css"> -->
     <link rel="stylesheet" type="text/css" href="stylesheets/ghostbutton.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/navigationBar.css">
 
@@ -23,14 +24,14 @@
       <li style="float:right"><a class="active" href="{{logout_url}}">Log Out</a></li>
     </ul>
 
-<!-- MAIN DISPLAY  -->
+  <!-- MAIN DISPLAY  -->
 <section>
-<br><br><br>
+  <br><br><br>
 
-<h1>Hi {{user.email}}</h1>
+  <h1>Hi {{user.email}}</h1>
 
-<!-- USER PHONE NUMBER -->
-  <br>
+  <!-- USER PHONE NUMBER -->
+    <br>
   <!-- TOP BUTTONS -->
   <div class="buttonHolder">
     <div id="left">
@@ -40,14 +41,20 @@
     <div id="middle">
         <a class="home_ghost-button" href="/removereminder{{user.url()}}">Remove a Reminder</a>
     </div>
+    <br>
     <div id="right">
-        <a class="home_ghost-button" href="/addphone{{user.url()}}&phone={{user.phone}}">SMS Settings</a>
+        <a class="home_ghost-button" href="/addphone{{user.url()}}&phone={{user.phone}}">Phone Settings</a>
   </div>
+
+</section>
+<div id="line"></div>
+
+
+<section id="top">
 
   <!-- USER'S TODAY EVENTS -->
   <h2>Today's Events</h2>
-  <div id="line"></div>
-  <br><br><br><br>
+  <br>
 
   <table align="center">
     <div id="today">
@@ -55,32 +62,31 @@
           {% for todays_reminder in todays_reminders %}
           <tr>
           <td align="left">
-            <p><img src="stylesheets/media/paw.gif" align="left" width="50"> <b> {{todays_reminder.title}}</b><br>
+            <p><img src="stylesheets/media/paw.gif" align="left" width="55" id="paw"> <b> {{todays_reminder.title}}</b><br>
               {{todays_reminder.description}}</p>
           </td>
         </tr>
           {% endfor %}
   </table>
 
-  <br><br><br>
-  <form method="get" action="/sendtext">
-  <input type="hidden" name="key" value="{{urlsafe_key}}">
-  <input type="submit" value="Send today's reminders">
-</form>
+    <form id="send" method="get" action="/sendtext">
+    <input type="hidden" name="key" value="{{urlsafe_key}}">
+    <input class="ghost-button" type="submit" value="Send today's reminders">
+    </form>
+</section>
+<div id="line2"></div>
 
-  </section>
 
   <!-- USER'S UPCOMING EVENTS -->
-  <section id="bottom">
+  <section id="top">
     <h2 id="bottom">Upcoming Events</h2>
-    <div id="line2"></div>
     <br>
       <table align="center">
-        <div id="upcoming">
+        <div id="today">
             <tr>
               {% for upcoming_reminder in upcoming_reminders %}
                 <td align="left">
-                  <p id="bottom"><b>{{upcoming_reminder.title}}</b>
+                  <p><img src="stylesheets/media/paw.gif" align="left" width="55" id="paw"><b>{{upcoming_reminder.title}}</b>
                   <br>
                   {{upcoming_reminder.description}}</p>
                 </td>

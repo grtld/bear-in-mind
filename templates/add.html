@@ -7,6 +7,12 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
+  <!-- BACKGROUND WORKS -->
+
+  <video muted autoplay loop poster="stylesheets/media/babybear.png" id="bgvid">
+  <source src="stylesheets/media/babybear.webm" type="video/webm">
+  <source src="stylesheets/media/babybear.mp4" type="video/mp4">
+  </video>
 <body>
   <!-- NAVIGATION BAR -->
   <ul>
@@ -18,7 +24,7 @@
   </video>
   <br><br><br>
 
-  <h2 style="text-align:center;">Add A Reminder</h2>
+  <h2 style="text-align:center;">Add a Reminder</h2>
   <div id="line"></div>
   <br>
 
@@ -31,7 +37,7 @@
     Every <input type="number" name="frequency" placeholder="# "/> days
     <br>starting from
     <input type="date" name="date"/>
-
+    <br>
     <br>
     <input class="ghost-button" type="submit" value="Add Reminder">
   </form>
